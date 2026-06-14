@@ -30,8 +30,8 @@ empty, Nudge hides itself rather than render a broken bar.
   with a manual fallback.
 * **Live updates** — the bar re-renders with the cart and animates smoothly,
   using a tiny dependency-free script (no jQuery of its own).
-* **Cart and checkout** — shows on both, classic and Cart/Checkout Blocks, plus a
-  `[nudge_bar]` shortcode for anywhere.
+* **Cart and checkout** — shows on both, classic templates and the
+  Cart/Checkout Blocks.
 * **Accessible** — a real `role="progressbar"` with `aria-valuenow/min/max` and a
   readable text alternative; respects `prefers-reduced-motion`.
 * **No layout shift** — the track reserves its height up front (zero CLS).
@@ -39,11 +39,6 @@ empty, Nudge hides itself rather than render a broken bar.
 * **Customisable messages** — use the `{amount}` token in the progress message
   and a separate success message when the goal is reached.
 * Translation ready (POT included), clean uninstall, HPOS + Blocks compatible.
-
-= The [nudge_bar] shortcode =
-
-Place the bar anywhere with `[nudge_bar]`. It renders the current cart's progress
-toward free shipping and hides itself when the cart is empty or no goal is set.
 
 == Installation ==
 
@@ -73,16 +68,12 @@ Nudge hides the bar rather than showing a broken or always-complete one.
 Yes. It renders on both the classic templates and the WooCommerce Cart/Checkout
 blocks, and declares HPOS and Cart/Checkout Blocks compatibility.
 
-= Can I place the bar somewhere custom? =
-
-Yes — use the `[nudge_bar]` shortcode in any page, post or widget.
-
 == Screenshots ==
 
 1. The free-shipping progress bar on the cart.
-2. The Nudge settings screen with live preview.
+2. The Nudge settings screen.
 
 == Changelog ==
 
 = 0.1.0 =
-* Initial release: accessible free-shipping progress bar for cart, checkout and the [nudge_bar] shortcode, with automatic or manual threshold, live updates, customisable messages and colours, dark-mode and reduced-motion support, and a settings screen with live preview.
+* Initial release: accessible free-shipping progress bar for the cart and checkout, with automatic or manual threshold, live updates, customisable messages, dark-mode and reduced-motion support, and a settings screen.

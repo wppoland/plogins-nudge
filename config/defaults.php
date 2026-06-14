@@ -5,8 +5,8 @@
  * Nudge ships enabled. The threshold source defaults to "auto" — reading the
  * minimum order amount from an active WooCommerce free-shipping method — and
  * falls back to the manual amount when no such method is configured. The
- * merchant tunes the messages (with the {amount} token), the bar colours and
- * where the bar appears from the Nudge admin screen.
+ * merchant tunes the messages (with the {amount} token) and where the bar
+ * appears from the Nudge admin screen.
  *
  * @package Nudge
  *
@@ -34,9 +34,4 @@ return [
     // Messages. {amount} is replaced with the formatted remaining amount.
     'message_progress' => 'Add {amount} more to get free shipping!',
     'message_success'  => 'You have unlocked free shipping!',
-
-    // Appearance (themeable; all map to CSS custom properties).
-    'bar_color'     => '#2271b1',
-    'bar_bg_color'  => '#e2e4e7',
-    'success_color' => '#1a7f37',
 ];

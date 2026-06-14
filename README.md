@@ -5,10 +5,10 @@ Nudge shows your WooCommerce shoppers an accessible progress bar toward free shi
 ## Features
 
 - Reads the free-shipping threshold automatically from your WooCommerce free-shipping method (the smallest minimum order amount across shipping zones), with a manual fixed-amount fallback.
-- Shows on the cart and checkout, both classic templates and the Cart/Checkout blocks, plus a `[nudge_bar]` shortcode for anywhere.
+- Shows on the cart and checkout, both classic templates and the Cart/Checkout blocks.
 - Updates live as the cart changes, animating smoothly and honouring `prefers-reduced-motion`. No jQuery of its own.
 - Accessible `role="progressbar"` with a readable text alternative and zero layout shift; dark-mode aware and themeable via CSS custom properties.
-- Settings under WooCommerce → Nudge: enable, threshold source, messages (with the `{amount}` token), colours and placement.
+- Settings under WooCommerce → Nudge: enable, placement, threshold source, and messages (with the `{amount}` token).
 
 ## Installation
 

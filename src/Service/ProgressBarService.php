@@ -9,13 +9,15 @@ defined('ABSPATH') || exit;
 use Nudge\Contract\HasHooks;
 
 /**
- * Renders the free-shipping progress bar on the cart and checkout, and via the
- * [nudge_bar] shortcode.
+ * Renders the free-shipping progress bar on the cart and checkout.
  *
  * The bar is computed server-side and re-rendered by WooCommerce whenever the
  * cart totals update (it lives inside the cart/checkout totals fragment). A
  * tiny, dependency-free script listens for WooCommerce's `updated_cart_totals`
  * and `updated_checkout` events to animate the width smoothly between renders.
+ *
+ * Renders on the cart and checkout (classic templates and the Cart/Checkout
+ * Blocks).
  *
  * Robustness: when the feature is disabled, the cart is empty, or no
  * free-shipping threshold is configured, the bar is hidden rather than rendered
@@ -58,8 +60,6 @@ final class ProgressBarService implements HasHooks
             add_action('woocommerce_before_checkout_form', [$this, 'renderCheckoutBar'], 5);
             add_action('woocommerce_review_order_after_order_total', [$this, 'renderInlineBar']);
         }
-
-        add_shortcode('nudge_bar', [$this, 'renderShortcode']);
     }
 
     /**
@@ -128,18 +128,6 @@ final class ProgressBarService implements HasHooks
     }
 
     /**
-     * Shortcode `[nudge_bar]` — render the progress bar anywhere.
-     *
-     * @param array<string, mixed>|string $atts
-     */
-    public function renderShortcode(mixed $atts): string
-    {
-        unset($atts); // No attributes today; reserved for future use.
-
-        return $this->buildBar('shortcode');
-    }
-
-    /**
      * Build the bar markup for a given context, or an empty string when there
      * is nothing meaningful to show.
      */
@@ -172,13 +160,10 @@ final class ProgressBarService implements HasHooks
 
         ob_start();
         $this->renderTemplate('progress-bar', [
-            'context'   => $context,
-            'percent'   => $percent,
-            'reached'   => $reached,
-            'message'   => $message,
-            'bar_color'     => (string) ($settings['bar_color'] ?? '#2271b1'),
-            'bar_bg_color'  => (string) ($settings['bar_bg_color'] ?? '#e2e4e7'),
-            'success_color' => (string) ($settings['success_color'] ?? '#1a7f37'),
+            'context' => $context,
+            'percent' => $percent,
+            'reached' => $reached,
+            'message' => $message,
         ]);
 
         return (string) ob_get_clean();
