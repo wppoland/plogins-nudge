@@ -19,6 +19,7 @@
  * @var int    $percent  Progress towards the goal, 0–100.
  * @var bool   $reached  Whether the free-shipping goal is met.
  * @var string $message  Pre-built message HTML (may contain wc_price markup).
+ * @var int[]  $tier_markers Optional milestone positions (0–99) for PRO tiered rewards.
  */
 
 declare(strict_types=1);
@@ -31,8 +32,12 @@ $context = isset($context) ? sanitize_html_class((string) $context) : 'cart';
 $percent = isset($percent) ? max(0, min(100, (int) $percent)) : 0;
 $reached = ! empty($reached);
 $message = isset($message) ? (string) $message : '';
+$tierMarkers = isset($tier_markers) && is_array($tier_markers) ? $tier_markers : [];
 
 $wrapperClasses = 'nudge nudge--' . $context . ($reached ? ' is-complete' : '');
+if ($tierMarkers !== []) {
+    $wrapperClasses .= ' nudge--tiered';
+}
 ?>
 <div class="<?php echo esc_attr($wrapperClasses); ?>" data-nudge>
     <p
@@ -52,6 +57,15 @@ $wrapperClasses = 'nudge nudge--' . $context . ($reached ? ' is-complete' : '');
         aria-valuenow="<?php echo esc_attr((string) $percent); ?>"
         aria-label="<?php esc_attr_e('Progress towards free shipping', 'nudge'); ?>"
     >
+        <?php foreach ($tierMarkers as $markerPercent) :
+            $markerPercent = max(0, min(99, (int) $markerPercent));
+            ?>
+            <span
+                class="nudge__tier-marker"
+                style="left:<?php echo esc_attr((string) $markerPercent); ?>%;"
+                aria-hidden="true"
+            ></span>
+        <?php endforeach; ?>
         <span
             class="nudge__fill"
             data-nudge-fill
