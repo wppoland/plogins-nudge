@@ -158,13 +158,19 @@ final class ProgressBarService implements HasHooks
 
         $this->enqueueAssets();
 
+        /** @var array{context:string,percent:int,reached:bool,message:string,threshold:float,total:float,remaining:float,tier_markers?:int[]} $barContext */
+        $barContext = apply_filters('nudge/bar_context', [
+            'context'   => $context,
+            'percent'   => $percent,
+            'reached'   => $reached,
+            'message'   => $message,
+            'threshold' => $threshold,
+            'total'     => $total,
+            'remaining' => $remaining,
+        ], $settings);
+
         ob_start();
-        $this->renderTemplate('progress-bar', [
-            'context' => $context,
-            'percent' => $percent,
-            'reached' => $reached,
-            'message' => $message,
-        ]);
+        $this->renderTemplate('progress-bar', $barContext);
 
         return (string) ob_get_clean();
     }
