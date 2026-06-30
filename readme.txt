@@ -1,11 +1,11 @@
-=== Nudge - Free Shipping Progress Bar for WooCommerce ===
+=== Plogins Nudge for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, free shipping, cart, progress bar, conversions
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,11 +30,10 @@ always-finished bar.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/nudge/docs/
-* **Plugin page** - https://plogins.com/nudge/
-* **Source code** - https://github.com/wppoland/nudge
-* **Bug reports and feature requests** - https://github.com/wppoland/nudge/issues
-* **Discussions and questions** - https://github.com/wppoland/nudge/discussions
+* **Documentation** - https://plogins.com/plogins-nudge/docs/
+* **Plugin page** - https://plogins.com/plogins-nudge/
+* **Source code** - https://github.com/wppoland/plogins-nudge
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-nudge/issues
 
 
 = What it does =
@@ -54,7 +53,7 @@ always-finished bar.
 * Ships a POT file, removes its options on uninstall, and declares HPOS and
   Cart/Checkout Blocks compatibility.
 
-Source code and bug reports live on GitHub: https://github.com/wppoland/nudge
+Source code and bug reports live on GitHub: https://github.com/wppoland/plogins-nudge
 
 == Installation ==
 
@@ -101,6 +100,9 @@ override.
 Nudge does not connect to any external service. It does not send analytics, register a licence, load remote fonts or scripts, or make any HTTP request off your server. Everything it needs (your free-shipping threshold and cart totals) comes from WooCommerce on the same site, and the bar's stylesheet and small animation script are served from the plugin folder, not a CDN. The only data Nudge stores is two WordPress options on your own database (`nudge_settings` for your configuration and `nudge_db_version` for upgrades), both removed when you delete the plugin.
 
 == Changelog ==
+
+= 0.1.4 =
+* Renamed to Plogins Nudge for WooCommerce for a more distinctive plugin name.
 
 = 0.1.3 =
 * `nudge/bar_rendered` action and `data-nudge-placement` attribute for PRO analytics beacons.
