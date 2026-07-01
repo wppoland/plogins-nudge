@@ -90,6 +90,11 @@ Yes. The progress and success messages are editable on the settings screen, and
 the bar's colours and sizing are `--nudge-*` CSS custom properties your theme can
 override.
 
+
+= Does this plugin work on WordPress Multisite? =
+
+Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data.
+
 == Screenshots ==
 
 1. The free-shipping progress bar on the cart.
