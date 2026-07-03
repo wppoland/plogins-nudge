@@ -27,11 +27,19 @@ final class Settings implements HasHooks
     /** Settings page hook suffix, captured so we can scope assets to it. */
     private string $hookSuffix = '';
 
+    private ?ProUpsell $proUpsell = null;
+
+    private function proUpsell(): ProUpsell
+    {
+        return $this->proUpsell ??= new ProUpsell();
+    }
+
     public function registerHooks(): void
     {
         add_action('admin_menu', [$this, 'addMenuPage']);
         add_action('admin_init', [$this, 'registerSettings']);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAssets']);
+        $this->proUpsell()->registerHooks();
     }
 
     public function addMenuPage(): void
@@ -99,10 +107,13 @@ final class Settings implements HasHooks
         <div class="wrap nudge-settings">
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 
+            <?php $this->proUpsell()->banner(); ?>
+
             <p class="nudge-settings__lead">
                 <?php esc_html_e('Nudge shows customers how close they are to free shipping and exactly how much more to add to unlock it. It updates live as the cart changes. The defaults work out of the box, adjust below only if you want to.', 'plogins-nudge'); ?>
             </p>
 
+            <div class="nudge-cols">
             <form method="post" action="options.php">
                 <?php settings_fields(self::PAGE); ?>
 
@@ -212,6 +223,11 @@ final class Settings implements HasHooks
 
                 <?php submit_button(); ?>
             </form>
+
+                <?php $this->proUpsell()->aside(); ?>
+            </div>
+
+            <?php $this->proUpsell()->cards(); ?>
         </div>
         <?php
     }
