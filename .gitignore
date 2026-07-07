@@ -8,3 +8,5 @@
 
 # Local scratch seed files (not part of plugin)
 seed-*.php
+*~
+*.bak
