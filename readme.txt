@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,7 +104,14 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 Nudge does not connect to any external service. It does not send analytics, register a licence, load remote fonts or scripts, or make any HTTP request off your server. Everything it needs (your free-shipping threshold and cart totals) comes from WooCommerce on the same site, and the bar's stylesheet and small animation script are served from the plugin folder, not a CDN. The only data Nudge stores is two WordPress options on your own database (`nudge_settings` for your configuration and `nudge_db_version` for upgrades), both removed when you delete the plugin.
 
+== Translations ==
+
+Plogins Nudge includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-nudge`, so WordPress.org language packs can also override or extend these bundled translations.
+
 == Changelog ==
+
+= 1.0.2 =
+* Added bundled Polish, German and Spanish translations for the plugin interface.
 
 = 1.0.1 =
 * First stable release.
