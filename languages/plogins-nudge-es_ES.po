@@ -1,0 +1,202 @@
+# Copyright (C) 2026 WPPoland
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Nudge - Free Shipping Progress Bar for WooCommerce 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nudge\n"
+"POT-Creation-Date: 2026-06-16T20:23:00+00:00\n"
+"PO-Revision-Date: 2026-06-16T20:23:00+00:00\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: plogins-nudge\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: nudge.php
+msgid "Nudge - Free Shipping Progress Bar for WooCommerce"
+msgstr "Nudge - Barra de progreso de envío gratuita para WooCommerce"
+
+#. Plugin URI of the plugin
+#: nudge.php
+msgid "https://plogins.com/nudge/"
+msgstr "https://plogins.com/es/nudge/"
+
+#. Description of the plugin
+#: nudge.php
+msgid ""
+"Show a free-shipping progress bar that nudges shoppers to add more to their "
+"cart."
+msgstr ""
+"Muestre una barra de progreso de envío gratuito que impulse a los "
+"compradores a añadir más a su carrito."
+
+#. Author of the plugin
+#: nudge.php
+msgid "WPPoland"
+msgstr "WPPoland"
+
+#. Author URI of the plugin
+#: nudge.php
+msgid "https://plogins.com/"
+msgstr "https://plogins.com/"
+
+#: nudge.php:47
+msgid ""
+"Nudge - Free Shipping Progress Bar for WooCommerce requires WooCommerce to "
+"be active."
+msgstr ""
+"Nudge: la barra de progreso de envío gratuito para WooCommerce requiere que "
+"WooCommerce esté activo."
+
+#: src/Admin/Settings.php:41
+msgid "Nudge: Free Shipping Bar"
+msgstr "Nudge: barra de envío gratuito"
+
+#: src/Admin/Settings.php:42
+msgid "Nudge"
+msgstr "Nudge"
+
+#: src/Admin/Settings.php:103
+msgid ""
+"Nudge shows customers how close they are to free shipping and exactly how "
+"much more to add to unlock it. It updates live as the cart changes. The "
+"defaults work out of the box, adjust below only if you want to."
+msgstr ""
+"Nudge muestra a los clientes qué tan cerca están del envío gratuito y "
+"exactamente cuánto más añadir para desbloquearlo. Se actualiza en vivo a "
+"medida que cambia el carrito. Los valores predeterminados funcionan de "
+"inmediato, ajústelos a continuación solo si lo desea."
+
+#: src/Admin/Settings.php:110
+msgid "General"
+msgstr "General"
+
+#: src/Admin/Settings.php:111
+msgid ""
+"Turn the bar on and choose where shoppers see it. Showing it on both cart "
+"and checkout keeps the goal in front of them through the whole purchase."
+msgstr ""
+"Encienda la barra y elija dónde la ven los compradores. Mostrarlo tanto en "
+"el carrito como en el pago mantiene el objetivo frente a ellos durante toda "
+"la compra."
+
+#: src/Admin/Settings.php:115
+msgid "Enable Nudge"
+msgstr "Habilitar Nudge"
+
+#: src/Admin/Settings.php:119
+msgid "Show the free-shipping progress bar to shoppers."
+msgstr "Muestre la barra de progreso del envío gratuito a los compradores."
+
+#: src/Admin/Settings.php:121
+msgid ""
+"When off, the bar and its assets never load, no styles or scripts are added "
+"to the front end."
+msgstr ""
+"Cuando está desactivada, la barra y sus recursos nunca se cargan, no se "
+"agregan estilos ni scripts al front-end."
+
+#: src/Admin/Settings.php:125
+msgid "Cart page"
+msgstr "Página del carrito"
+
+#: src/Admin/Settings.php:125
+msgid "Show the bar on the cart page, above the totals."
+msgstr "Muestra la barra en la página del carrito, encima de los totales."
+
+#: src/Admin/Settings.php:126
+msgid "Checkout page"
+msgstr "página de pago"
+
+#: src/Admin/Settings.php:126
+msgid "Show the bar on checkout, so the goal stays visible while they pay."
+msgstr ""
+"Muestre la barra al finalizar la compra, para que el objetivo permanezca "
+"visible mientras pagan."
+
+#: src/Admin/Settings.php:133
+msgid "Free-shipping threshold"
+msgstr "Umbral de envío gratuito"
+
+#: src/Admin/Settings.php:134
+msgid ""
+"Where the “you reach free shipping at…” amount comes from. Automatic keeps "
+"the bar in sync with your real shipping rules, so it is never wrong after a "
+"price change."
+msgstr ""
+"De dónde viene el importe «consigues el envío gratis a partir de…». "
+"Automático mantiene la barra sincronizada con sus reglas de envío reales, "
+"para que nunca se equivoque tras un cambio de precio."
+
+#: src/Admin/Settings.php:139
+msgid "Threshold source"
+msgstr "Fuente umbral"
+
+#: src/Admin/Settings.php:146
+msgid "Automatic (from free-shipping method)"
+msgstr "Automático (desde método de envío gratuito)"
+
+#: src/Admin/Settings.php:147
+msgid "Manual (fixed amount)"
+msgstr "Manual (cantidad fija)"
+
+#: src/Admin/Settings.php:156
+msgid ""
+"Automatic reads the minimum order amount from your WooCommerce free-shipping"
+" method, the smallest one across your shipping zones, so the bar updates "
+"itself when you change that rule. The manual amount below is used as a "
+"fallback when no such method is found."
+msgstr ""
+"Automático lee el monto mínimo del pedido de su método de envío gratuito de "
+"WooCommerce, el más pequeño en sus zonas de envío, por lo que la barra se "
+"actualiza sola cuando cambia esa regla. La cantidad manual a continuación se"
+" utiliza como alternativa cuando no se encuentra dicho método."
+
+#: src/Admin/Settings.php:161
+msgid "Manual amount"
+msgstr "Cantidad manual"
+
+#: src/Admin/Settings.php:165
+msgid ""
+"In your store currency, before shipping and taxes. Used when the source is "
+"Manual, or as the fallback for Automatic. Default: 50."
+msgstr ""
+"En la moneda de tu tienda, antes de envío e impuestos. Se utiliza cuando la "
+"fuente es Manual o como alternativa para Automático. Predeterminado: 50."
+
+#: src/Admin/Settings.php:173
+msgid "Messages"
+msgstr "Mensajes"
+
+#. translators: %s: the {amount} token, shown as a styled chip.
+#: src/Admin/Settings.php:178
+#, php-format
+msgid ""
+"What the bar says before and after the goal is reached. Write %s where you "
+"want the remaining amount, it is replaced with the value formatted in your "
+"store currency (e.g. $12.00)."
+msgstr ""
+"Lo que dice la barra antes y después de alcanzar la meta. Escriba %s donde "
+"desee el monto restante; se reemplazará con el valor formateado en la moneda"
+" de su tienda (por ejemplo, $12,00)."
+
+#: src/Admin/Settings.php:187
+msgid "Progress message"
+msgstr "Mensaje de progreso"
+
+#: src/Admin/Settings.php:192 src/Admin/Settings.php:204
+msgid "Shoppers see:"
+msgstr "Los compradores ven:"
+
+#: src/Admin/Settings.php:199
+msgid "Success message"
+msgstr "Mensaje de éxito"
+
+#: templates/progress-bar.php:42
+msgid "Progress towards free shipping"
+msgstr "Progreso hacia el envío gratuito"
