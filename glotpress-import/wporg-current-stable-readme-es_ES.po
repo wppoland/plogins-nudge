@@ -8,65 +8,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: plogins-i18n\n"
 
-msgid "Requires Plugins: woocommerce"
-msgstr "Requiere complementos: woocommerce"
-
 msgid "A free-shipping progress bar that tells WooCommerce shoppers how much more to add to qualify for free delivery."
-msgstr "Una barra de progreso de envío gratuito que les indica a los compradores de WooCommerce cuánto más deben añadir para calificar para la entrega gratuita."
+msgstr "Una barra de progreso de envío gratis que indica a los compradores de WooCommerce cuánto más deben añadir para conseguir la entrega gratuita."
 
 msgid "Nudge shows shoppers how far their cart is from your free-shipping threshold and\nhow much more they need to add to reach it. The message updates as the cart\nchanges, so \"free shipping over $50\" stops being fine print and becomes a number\nthe customer can act on."
-msgstr "Nudge muestra a los compradores qué tan lejos está su carrito de su umbral de envío gratuito y\ncuánto más necesitan añadir para alcanzarlo. El mensaje se actualiza a medida que el carrito\ncambios, por lo que \"envío gratis a partir de $50\" deja de ser letra pequeña y se convierte en un número\nel cliente puede actuar."
+msgstr "Nudge muestra a los compradores cuánto les falta en el carrito para alcanzar tu umbral de envío gratis y\ncuánto más deben añadir para lograrlo. El mensaje se actualiza a medida que cambia el carrito,\nasí que «envío gratis a partir de 50 $» deja de ser letra pequeña y se convierte en una cifra\nsobre la que el cliente puede actuar."
 
 msgid "By default the threshold comes straight from WooCommerce. Nudge looks at your\nenabled free-shipping methods across all shipping zones and uses the lowest\nminimum order amount it finds, so you don't maintain the figure in two places. If\nyou'd rather set it yourself, switch to Manual mode and type a fixed amount; that\namount is also used as a fallback when Automatic mode finds no qualifying method."
-msgstr "De forma predeterminada, el umbral proviene directamente de WooCommerce. Nudge mira tu\nHabilitó métodos de envío gratuito en todas las zonas de envío y utiliza el precio más bajo.\ncantidad mínima de pedido que encuentra, por lo que no mantiene la cifra en dos lugares. si\nprefiere configurarlo tú mismo, cambiar al modo Manual y escribir una cantidad fija; eso\nLa cantidad también se utiliza como alternativa cuando el modo Automático no encuentra ningún método de calificación."
+msgstr "De forma predeterminada, el umbral viene directamente de WooCommerce. Nudge revisa tus\nmétodos de envío gratis activados en todas las zonas de envío y usa la\ncantidad mínima de pedido más baja que encuentra, así que no mantienes la cifra en dos sitios. Si\nprefieres fijarla tú mismo, cambia al modo manual y escribe una cantidad fija; esa\ncantidad también se usa como respaldo cuando el modo automático no encuentra ningún método válido."
 
 msgid "When there's nothing useful to show (the bar is disabled, the cart is empty, or no\nthreshold is configured) Nudge renders nothing instead of an empty or\nalways-finished bar."
-msgstr "Cuando no hay nada útil que mostrar (la barra está deshabilitada, el carrito está vacío o no hay\numbral está configurado) Nudge no representa nada en lugar de un espacio vacío o\nbarra siempre terminada."
+msgstr "Cuando no hay nada útil que mostrar (la barra está desactivada, el carrito está vacío o no hay\numbral configurado), Nudge no muestra nada en lugar de una barra vacía o\nsiempre completada."
 
 msgid "* <strong>Documentation</strong> - https://plogins.com/plogins-nudge/docs/\n* <strong>Plugin page</strong> - https://plogins.com/plogins-nudge/\n* <strong>Source code</strong> - https://github.com/wppoland/plogins-nudge\n* <strong>Bug reports and feature requests</strong> - https://github.com/wppoland/plogins-nudge/issues"
-msgstr "* <strong>Documentación</strong> - https://plogins.com/es/plogins-nudge/docs/\n* <strong>Página de complementos</strong> - https://plogins.com/es/plogins-nudge/\n* <strong>Código fuente</strong> - https://github.com/wppoland/plogins-nudge\n* <strong>Informes de errores y solicitudes de funciones</strong> - https://github.com/wppoland/plogins-nudge/issues"
+msgstr "* <strong>Documentación</strong> - https://plogins.com/es/plogins-nudge/docs/\n* <strong>Página del plugin</strong> - https://plogins.com/es/plogins-nudge/\n* <strong>Código fuente</strong> - https://github.com/wppoland/plogins-nudge\n* <strong>Informes de errores y peticiones de funciones</strong> - https://github.com/wppoland/plogins-nudge/issues"
 
 msgid "* Reads the free-shipping threshold automatically from your active WooCommerce\n  free-shipping methods, or takes a fixed amount you set by hand.\n* Re-renders with the cart on both the classic Cart/Checkout pages and the\n  Cart/Checkout Blocks. A small script (no jQuery of its own) animates the width\n  between updates.\n* Exposes a real `role=\"progressbar\"` with `aria-valuenow`/`min`/`max` and a\n  readable text message for screen readers; honours `prefers-reduced-motion`.\n* Reserves the bar's height before paint, so adding it doesn't shift the layout.\n* Styles the bar with `--nudge-*` CSS custom properties and adapts to dark colour\n  schemes, so themes can recolour it without editing markup.\n* Lets you write the progress and success messages, with an `{amount}` token in\n  the progress message for the remaining total.\n* Ships a POT file, removes its options on uninstall, and declares HPOS and\n  Cart/Checkout Blocks compatibility."
-msgstr "* Lee el umbral de envío gratuito automáticamente desde tu WooCommerce activo\n  métodos de envío gratuito o aceptan una cantidad fija que estableces manualmente.\n* Se vuelve a representar con el carrito tanto en las páginas clásicas de Carrito/Pago como en la\n  Bloques de carrito/pago. Un pequeño script (sin jQuery propio) anima el ancho\n  entre actualizaciones.\n* Expone un `role=\"progressbar\"` real con `aria-valuenow`/`min`/`max` y un\n  mensajes de texto legibles para lectores de pantalla; honra \"prefiere movimiento reducido\".\n* Reserva la altura de la barra antes de pintar, por lo que agregarla no cambia el diseño.\n* Diseña la barra con propiedades personalizadas CSS `--nudge-*` y se adapta al color oscuro\n  esquemas, para que los temas puedan cambiar su color sin editar el marcado.\n* Le permite escribir los mensajes de progreso y éxito, con un token `{amount}` en\n  el mensaje de progreso para el total restante.\n* Envía un archivo POT, elimina sus opciones de desinstalación y declara HPOS y\n  Compatibilidad con carritos/bloques de pago."
+msgstr "* Lee el umbral de envío gratis automáticamente desde tus métodos activos de\n  envío gratis de WooCommerce o acepta una cantidad fija que defines a mano.\n* Se vuelve a renderizar con el carrito tanto en las páginas clásicas de carrito y pago como en los\n  bloques de carrito y pago. Un script pequeño (sin jQuery propio) anima el ancho\n  entre actualizaciones.\n* Expone un `role=\"progressbar\"` real con `aria-valuenow`/`min`/`max` y un\n  mensaje de texto legible para lectores de pantalla; respeta prefers-reduced-motion.\n* Reserva la altura de la barra antes de pintar, así que añadirla no desplaza el diseño.\n* Estiliza la barra con propiedades CSS personalizadas `--nudge-*` y se adapta a esquemas de color\n  oscuros, para que los temas puedan recolorearla sin editar el marcado.\n* Te permite escribir los mensajes de progreso y de éxito, con un token `{amount}` en el\n  mensaje de progreso para el total restante.\n* Incluye un archivo POT, elimina sus opciones al desinstalar y declara compatibilidad con HPOS y\n  con los bloques de carrito y pago."
 
 msgid "Source code and bug reports live on GitHub: https://github.com/wppoland/plogins-nudge"
-msgstr "El código fuente y los informes de errores están disponibles en GitHub: https://github.com/wppoland/plogins-nudge"
+msgstr "El código fuente y los informes de errores están en GitHub: https://github.com/wppoland/plogins-nudge"
 
 msgid "1. Upload the plugin to `/wp-content/plugins/nudge`, or install via Plugins → Add New.\n2. Activate it. WooCommerce must be active.\n3. Go to <strong>WooCommerce → Nudge</strong>, enable the bar, and choose where it shows."
-msgstr "1. Cargue el complemento en `/wp-content/plugins/nudge`, o instálelo a través de Complementos → Añadir nuevo.\n2. Actívalo. WooCommerce debe estar activo.\n3. Vaya a <strong>WooCommerce → Nudge</strong>, activa la barra y elija dónde se muestra."
+msgstr "1. Sube el plugin a `/wp-content/plugins/nudge` o instálalo desde Plugins → Añadir nuevo.\n2. Actívalo. WooCommerce debe estar activo.\n3. Ve a <strong>WooCommerce → Nudge</strong>, activa la barra y elige dónde se muestra."
 
 msgid "Yes. Nudge does nothing until WooCommerce is active."
 msgstr "Sí. Nudge no hace nada hasta que WooCommerce esté activo."
 
 msgid "In Automatic mode, Nudge reads the minimum order amount from your enabled\nWooCommerce free-shipping methods and uses the smallest one across your shipping\nzones. In Manual mode you set a fixed amount yourself. If Automatic mode finds no\nmethod with a minimum order amount, it uses the manual amount instead."
-msgstr "En el modo Automático, Nudge lee el monto mínimo del pedido de su cuenta habilitada.\nMétodos de envío gratuito de WooCommerce y utiliza el más pequeño en todos sus envíos.\nzonas. En el modo Manual, tú mismo establece una cantidad fija. Si el modo automático no encuentra\nmétodo con un monto mínimo de pedido, en su lugar utiliza el monto manual."
+msgstr "En el modo automático, Nudge lee la cantidad mínima de pedido de tus métodos activos de\nenvío gratis de WooCommerce y usa la más baja en todas tus zonas de\nenvío. En el modo manual fijas tú una cantidad fija. Si el modo automático no encuentra ningún\nmétodo con cantidad mínima de pedido, usa en su lugar la cantidad manual."
 
 msgid "Nothing. Rather than render an empty or always-complete bar, Nudge skips output\nentirely until there's a real threshold to count down to."
-msgstr "Nada. En lugar de representar una barra vacía o siempre completa, Nudge omite la salida\ncompletamente hasta que haya un umbral real para realizar la cuenta regresiva."
+msgstr "Nada. En lugar de mostrar una barra vacía o siempre completa, Nudge omite la salida\npor completo hasta que haya un umbral real hacia el que contar."
 
 msgid "Yes. It renders on the classic Cart/Checkout templates and on the WooCommerce\nCart/Checkout blocks, and declares HPOS and Cart/Checkout Blocks compatibility."
-msgstr "Sí. Se muestra en las plantillas clásicas de carrito/pago y en WooCommerce.\nBloques de carrito/pago y declara compatibilidad con HPOS y bloques de carrito/pago."
+msgstr "Sí. Se renderiza en las plantillas clásicas de carrito y pago y en los bloques de\ncarrito y pago de WooCommerce, y declara compatibilidad con HPOS y con los bloques de carrito y pago."
 
 msgid "Yes. The progress and success messages are editable on the settings screen, and\nthe bar's colours and sizing are `--nudge-*` CSS custom properties your theme can\noverride."
-msgstr "Sí. Los mensajes de progreso y éxito se pueden editar en la pantalla de configuración y\nlos colores y el tamaño de la barra son `--nudge-*` propiedades personalizadas de CSS que tu tema puede\nanular."
+msgstr "Sí. Los mensajes de progreso y de éxito se pueden editar en la pantalla de ajustes, y\nlos colores y el tamaño de la barra son propiedades CSS personalizadas `--nudge-*` que tu tema puede\nsobrescribir."
 
 msgid "Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data."
-msgstr "Sí. Este complemento es compatible con WordPress Multisite. Activarlo en red o activarlo en sitios individuales; Cada sitio mantiene su propia configuración y datos."
+msgstr "Sí. Este plugin es compatible con WordPress Multisite. Actívalo para toda la red o en sitios concretos; cada sitio conserva sus propios ajustes y datos."
 
 msgid "1. The free-shipping progress bar on the cart.\n2. The Nudge settings screen."
-msgstr "1. La barra de progreso de envío gratuito en el carrito.\n2. La pantalla de configuración de Nudge."
+msgstr "1. La barra de progreso de envío gratis en el carrito.\n2. La pantalla de ajustes de Nudge."
 
 msgid "Nudge does not connect to any external service. It does not send analytics, register a licence, load remote fonts or scripts, or make any HTTP request off your server. Everything it needs (your free-shipping threshold and cart totals) comes from WooCommerce on the same site, and the bar's stylesheet and small animation script are served from the plugin folder, not a CDN. The only data Nudge stores is two WordPress options on your own database (`nudge_settings` for your configuration and `nudge_db_version` for upgrades), both removed when you delete the plugin."
-msgstr "Nudge no se conecta a ningún servicio externo. No envía análisis, no registra una licencia, no carga fuentes o scripts remotos ni realiza ninguna solicitud HTTP desde su servidor. Todo lo que necesita (el umbral de envío gratuito y los totales del carrito) proviene de WooCommerce en el mismo sitio, y la hoja de estilo de la barra y el pequeño script de animación se entregan desde la carpeta del complemento, no desde una CDN. Los únicos datos que almacena Nudge son dos opciones de WordPress en su propia base de datos (`nudge_settings` para tu configuración y `nudge_db_version` para actualizaciones), ambas eliminadas cuando elimina el complemento."
+msgstr "Nudge no se conecta a ningún servicio externo. No envía analíticas, no registra ninguna licencia, no carga fuentes ni scripts remotos ni realiza ninguna petición HTTP fuera de tu servidor. Todo lo que necesita (tu umbral de envío gratis y los totales del carrito) proviene de WooCommerce en el mismo sitio, y la hoja de estilos de la barra y el pequeño script de animación se sirven desde la carpeta del plugin, no desde una CDN. Los únicos datos que almacena Nudge son dos opciones de WordPress en tu propia base de datos (`nudge_settings` para tu configuración y `nudge_db_version` para actualizaciones), ambas eliminadas cuando borras el plugin."
+
+msgid "Plogins Nudge includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-nudge`, so WordPress.org language packs can also override or extend these bundled translations."
+msgstr "Plogins Nudge incluye traducciones al polaco, al alemán y al español para la interfaz del plugin. El dominio de texto es `plogins-nudge`, por lo que los paquetes de idioma de WordPress.org también pueden sustituir o ampliar estas traducciones incluidas."
+
+msgid "* Added bundled Polish, German and Spanish translations for the plugin interface."
+msgstr "* Se añadieron traducciones incluidas al polaco, al alemán y al español para la interfaz del plugin."
 
 msgid "* First stable release."
 msgstr "* Primera versión estable."
 
 msgid "* Renamed to Plogins Nudge for WooCommerce for a more distinctive plugin name."
-msgstr "* Renombrado a Plogins Nudge para WooCommerce para obtener un nombre de complemento más distintivo."
+msgstr "* Renombrado a Plogins Nudge for WooCommerce para un nombre de plugin más distintivo."
 
 msgid "* `nudge/bar_rendered` action and `data-nudge-placement` attribute for PRO analytics beacons."
-msgstr "* Acción `nudge/bar_rendered` y atributo `data-nudge-placement` para balizas de análisis PRO."
+msgstr "* Acción `nudge/bar_rendered` y atributo `data-nudge-placement` para balizas de analítica PRO."
 
 msgid "* `nudge/bar_context` filter so PRO can adjust progress, messages and tier markers."
 msgstr "* Filtro `nudge/bar_context` para que PRO pueda ajustar el progreso, los mensajes y los marcadores de niveles."
@@ -75,5 +78,5 @@ msgid "* `nudge/threshold` filter and `ThresholdResolver::zoneThreshold()` for P
 msgstr "* Filtro `nudge/threshold` y `ThresholdResolver::zoneThreshold()` para objetivos PRO por zona."
 
 msgid "* First release: free-shipping progress bar for the cart and checkout, with an automatic or manual threshold, live updates as the cart changes, editable messages, dark-mode and reduced-motion support, and a settings screen under WooCommerce → Nudge."
-msgstr "* Primera versión: barra de progreso de envío gratuito para el carrito y el pago, con un umbral automático o manual, actualizaciones en vivo a medida que cambia el carrito, mensajes editables, soporte para modo oscuro y movimiento reducido, y una pantalla de configuración en WooCommerce → Nudge."
+msgstr "* Primer lanzamiento: barra de progreso de envío gratis para el carrito y el pago, con umbral automático o manual, actualizaciones en directo a medida que cambia el carrito, mensajes editables, soporte de modo oscuro y movimiento reducido, y una pantalla de ajustes en WooCommerce → Nudge."
 

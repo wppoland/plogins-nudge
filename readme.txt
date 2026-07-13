@@ -1,4 +1,4 @@
-=== Plogins Nudge - Free Shipping Bar for WooCommerce ===
+=== Nudge - Free Shipping Bar for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, free shipping, cart, progress bar, conversions
 Requires at least: 6.5
