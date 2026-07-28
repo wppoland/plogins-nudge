@@ -7,7 +7,7 @@ namespace Nudge\Admin;
 defined('ABSPATH') || exit;
 
 /**
- * PRO upgrade promotion, shown ONLY on the Marks settings screen: a dismissible
+ * PRO upgrade promotion, shown ONLY on the Nudge settings screen: a dismissible
  * top banner, a sidebar promo panel, and a "what PRO adds" locked-card list.
  *
  * It is pure advertising: no disabled form fields, nothing blocks a free
@@ -39,11 +39,17 @@ final class ProUpsell
         return $this->data;
     }
 
+    /** Whether the PRO edition can actually be bought yet. */
+    private function sellable(): bool
+    {
+        return (bool) ($this->data()['sellable'] ?? false);
+    }
+
     /** Whether to render the promo at all (filterable for white-label builds). */
     public function enabled(): bool
     {
         /**
-         * Filters whether the Marks PRO promo is shown on the settings screen.
+         * Filters whether the Nudge PRO promo is shown on the settings screen.
          *
          * @param bool $show Default true.
          */
@@ -52,11 +58,11 @@ final class ProUpsell
 
     private function url(): string
     {
-        $default = (string) ($this->data()['url'] ?? 'https://plogins.com/plogins-nudge-pro/pricing/');
+        $default = (string) ($this->data()['url'] ?? 'https://plogins.com/plogins-nudge-pro/');
         /**
-         * Filters the URL the "Upgrade to PRO" buttons point at.
+         * Filters the URL the PRO call-to-action buttons point at.
          *
-         * @param string $url Default the Marks PRO pricing page.
+         * @param string $url Default the Nudge PRO page.
          */
         return (string) apply_filters('nudge/pro_url', $default);
     }
@@ -68,6 +74,9 @@ final class ProUpsell
 
     private function priceLabel(): string
     {
+        if (! $this->sellable()) {
+            return $this->isPolish() ? __('Wkrótce', 'plogins-nudge') : __('Coming soon', 'plogins-nudge');
+        }
         $d = $this->data();
         if ($this->isPolish() && ! empty($d['price_pln'])) {
             /* translators: %d: yearly price in PLN */
@@ -79,6 +88,14 @@ final class ProUpsell
             return sprintf(__('from %1$s%2$d/yr', 'plogins-nudge'), $cur, (int) $d['price_from']);
         }
         return '';
+    }
+
+    /** The call-to-action label: buy when sellable, otherwise a soft notify. */
+    private function ctaLabel(): string
+    {
+        return $this->sellable()
+            ? __('Upgrade to PRO', 'plogins-nudge')
+            : ($this->isPolish() ? __('Powiadom mnie', 'plogins-nudge') : __('Get notified', 'plogins-nudge'));
     }
 
     /** @return array<int, array{title: string, desc: string}> */
@@ -143,7 +160,7 @@ final class ProUpsell
                 <?php if ($price !== '') : ?><span class="nudge-pro-banner__price"><?php echo esc_html($price); ?></span><?php endif; ?>
             </p>
             <a class="button button-primary nudge-pro-banner__cta" href="<?php echo esc_url($this->url()); ?>" target="_blank" rel="noopener noreferrer">
-                <?php esc_html_e('Upgrade to PRO', 'plogins-nudge'); ?>
+                <?php echo esc_html($this->ctaLabel()); ?>
             </a>
             <a class="nudge-pro-banner__dismiss" href="<?php echo esc_url($this->dismissUrl()); ?>" aria-label="<?php esc_attr_e('Dismiss this notice', 'plogins-nudge'); ?>">&times;</a>
         </div>
@@ -172,10 +189,10 @@ final class ProUpsell
                 <?php endforeach; ?>
             </ul>
             <a class="button button-primary button-hero nudge-pro-aside__cta" href="<?php echo esc_url($this->url()); ?>" target="_blank" rel="noopener noreferrer">
-                <?php esc_html_e('Upgrade to PRO', 'plogins-nudge'); ?>
+                <?php echo esc_html($this->ctaLabel()); ?>
             </a>
             <?php if ($price !== '') : ?>
-                <p class="nudge-pro-aside__price"><?php echo esc_html($price); ?> · <?php esc_html_e('one licence, every PRO feature', 'plogins-nudge'); ?></p>
+                <p class="nudge-pro-aside__price"><?php echo esc_html($price); ?><?php if ($this->sellable()) : ?> · <?php esc_html_e('one licence, every PRO feature', 'plogins-nudge'); ?><?php endif; ?></p>
             <?php endif; ?>
         </aside>
         <?php

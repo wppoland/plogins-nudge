@@ -5,7 +5,7 @@
  * Accessible: the track is a role="progressbar" with aria-valuenow/min/max, and
  * the human-readable message is a polite live region (role="status",
  * aria-live="polite", aria-atomic="true") so screen-reader users hear the new
- * sentence — e.g. "Add €8 more to get free shipping" — when WooCommerce
+ * sentence, e.g. "Add €8 more to get free shipping", when WooCommerce
  * re-renders the bar after a cart change. It announces only the meaningful
  * message (the whole short sentence, atomically), never per-keystroke or
  * per-poll, because the text changes only when the cart total does. The fill
@@ -16,10 +16,10 @@
  * @package Nudge
  *
  * @var string $context  Render context: cart|checkout|inline.
- * @var int    $percent  Progress towards the goal, 0–100.
+ * @var int    $percent  Progress towards the goal, 0-100.
  * @var bool   $reached  Whether the free-shipping goal is met.
  * @var string $message  Pre-built message HTML (may contain wc_price markup).
- * @var int[]  $tier_markers Optional milestone positions (0–99) for PRO tiered rewards.
+ * @var int[]  $tier_markers Optional milestone positions (0-99) for PRO tiered rewards.
  */
 
 declare(strict_types=1);

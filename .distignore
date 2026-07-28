@@ -1,4 +1,4 @@
-# Files excluded from the wp.org build. Nudge is self-contained — it has no
+# Files excluded from the wp.org build. Nudge is self-contained, it has no
 # runtime Composer dependencies, so /vendor (dev tooling only) is NOT shipped.
 /.git
 /vendor
@@ -32,3 +32,10 @@
 /test-results
 /playwright-report
 /.playwright-mcp
+
+# editor backups (never ship / never a badly_named_files reject)
+*~
+*.bak
+
+# Translation import tooling (GlotPress PO/MO staging) - never ship in the zip
+glotpress-import/
