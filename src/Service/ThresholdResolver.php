@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
  * In "auto" mode it inspects every shipping zone (plus the "rest of the world"
  * zone) for an enabled `free_shipping` method whose requirement involves a
  * minimum order amount, and uses the smallest such amount it finds. When no
- * qualifying method exists — or the source is set to "manual" — it falls back to
+ * qualifying method exists, or the source is set to "manual", it falls back to
  * the merchant-configured amount.
  *
  * All amounts are floats in the store currency. A threshold of 0 (or less) means

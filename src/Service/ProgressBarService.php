@@ -141,7 +141,7 @@ final class ProgressBarService implements HasHooks
         $settings  = $this->settings();
         $threshold = $this->resolver->threshold($settings);
 
-        // No configured free-shipping goal — hide rather than show a broken bar.
+        // No configured free-shipping goal, hide rather than show a broken bar.
         if ($threshold <= 0.0) {
             return '';
         }

@@ -2,8 +2,8 @@
 /**
  * Default settings, merged under the option key `nudge_settings`.
  *
- * Nudge ships enabled. The threshold source defaults to "auto" — reading the
- * minimum order amount from an active WooCommerce free-shipping method — and
+ * Nudge ships enabled. The threshold source defaults to "auto", reading the
+ * minimum order amount from an active WooCommerce free-shipping method, and
  * falls back to the manual amount when no such method is configured. The
  * merchant tunes the messages (with the {amount} token) and where the bar
  * appears from the Nudge admin screen.
