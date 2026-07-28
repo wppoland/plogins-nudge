@@ -2,7 +2,8 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Nudge - Free Shipping Progress Bar for WooCommerce 0.1.0\n"
+"Project-Id-Version: Nudge - Free Shipping Progress Bar for WooCommerce "
+"0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nudge\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +27,9 @@ msgstr ""
 
 #. Description of the plugin
 #: nudge.php
-msgid "Show a free-shipping progress bar that nudges shoppers to add more to their cart."
+msgid ""
+"Show a free-shipping progress bar that nudges shoppers to add more to their "
+"cart."
 msgstr ""
 
 #. Author of the plugin
@@ -40,7 +43,9 @@ msgid "https://plogins.com/"
 msgstr ""
 
 #: nudge.php:47
-msgid "Nudge - Free Shipping Progress Bar for WooCommerce requires WooCommerce to be active."
+msgid ""
+"Nudge - Free Shipping Progress Bar for WooCommerce requires WooCommerce to "
+"be active."
 msgstr ""
 
 #: src/Admin/Settings.php:41
@@ -52,7 +57,10 @@ msgid "Nudge"
 msgstr ""
 
 #: src/Admin/Settings.php:103
-msgid "Nudge shows customers how close they are to free shipping and exactly how much more to add to unlock it. It updates live as the cart changes. The defaults work out of the box, adjust below only if you want to."
+msgid ""
+"Nudge shows customers how close they are to free shipping and exactly how "
+"much more to add to unlock it. It updates live as the cart changes. The "
+"defaults work out of the box, adjust below only if you want to."
 msgstr ""
 
 #: src/Admin/Settings.php:110
@@ -60,7 +68,9 @@ msgid "General"
 msgstr ""
 
 #: src/Admin/Settings.php:111
-msgid "Turn the bar on and choose where shoppers see it. Showing it on both cart and checkout keeps the goal in front of them through the whole purchase."
+msgid ""
+"Turn the bar on and choose where shoppers see it. Showing it on both cart "
+"and checkout keeps the goal in front of them through the whole purchase."
 msgstr ""
 
 #: src/Admin/Settings.php:115
@@ -72,7 +82,9 @@ msgid "Show the free-shipping progress bar to shoppers."
 msgstr ""
 
 #: src/Admin/Settings.php:121
-msgid "When off, the bar and its assets never load, no styles or scripts are added to the front end."
+msgid ""
+"When off, the bar and its assets never load, no styles or scripts are added "
+"to the front end."
 msgstr ""
 
 #: src/Admin/Settings.php:125
@@ -96,7 +108,10 @@ msgid "Free-shipping threshold"
 msgstr ""
 
 #: src/Admin/Settings.php:134
-msgid "Where the “you reach free shipping at…” amount comes from. Automatic keeps the bar in sync with your real shipping rules, so it is never wrong after a price change."
+msgid ""
+"Where the “you reach free shipping at…” amount comes from. Automatic keeps "
+"the bar in sync with your real shipping rules, so it is never wrong after a "
+"price change."
 msgstr ""
 
 #: src/Admin/Settings.php:139
@@ -112,7 +127,11 @@ msgid "Manual (fixed amount)"
 msgstr ""
 
 #: src/Admin/Settings.php:156
-msgid "Automatic reads the minimum order amount from your WooCommerce free-shipping method, the smallest one across your shipping zones, so the bar updates itself when you change that rule. The manual amount below is used as a fallback when no such method is found."
+msgid ""
+"Automatic reads the minimum order amount from your WooCommerce free-shipping "
+"method, the smallest one across your shipping zones, so the bar updates "
+"itself when you change that rule. The manual amount below is used as a "
+"fallback when no such method is found."
 msgstr ""
 
 #: src/Admin/Settings.php:161
@@ -120,7 +139,9 @@ msgid "Manual amount"
 msgstr ""
 
 #: src/Admin/Settings.php:165
-msgid "In your store currency, before shipping and taxes. Used when the source is Manual, or as the fallback for Automatic. Default: 50."
+msgid ""
+"In your store currency, before shipping and taxes. Used when the source is "
+"Manual, or as the fallback for Automatic. Default: 50."
 msgstr ""
 
 #: src/Admin/Settings.php:173
@@ -130,15 +151,17 @@ msgstr ""
 #. translators: %s: the {amount} token, shown as a styled chip.
 #: src/Admin/Settings.php:178
 #, php-format
-msgid "What the bar says before and after the goal is reached. Write %s where you want the remaining amount, it is replaced with the value formatted in your store currency (e.g. $12.00)."
+msgid ""
+"What the bar says before and after the goal is reached. Write %s where you "
+"want the remaining amount, it is replaced with the value formatted in your "
+"store currency (e.g. $12.00)."
 msgstr ""
 
 #: src/Admin/Settings.php:187
 msgid "Progress message"
 msgstr ""
 
-#: src/Admin/Settings.php:192
-#: src/Admin/Settings.php:204
+#: src/Admin/Settings.php:192 src/Admin/Settings.php:204
 msgid "Shoppers see:"
 msgstr ""
 
@@ -148,4 +171,64 @@ msgstr ""
 
 #: templates/progress-bar.php:42
 msgid "Progress towards free shipping"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr ""
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr ""
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
 msgstr ""
