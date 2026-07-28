@@ -1,7 +1,7 @@
 <?php
 /**
  * Service wiring. Returns a closure that registers every service in the
- * container. Keep services thin and self-contained — Nudge has no external
+ * container. Keep services thin and self-contained, Nudge has no external
  * runtime dependencies.
  *
  * @package Nudge

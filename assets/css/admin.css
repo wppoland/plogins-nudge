@@ -1,5 +1,5 @@
 /**
- * Nudge — admin settings screen.
+ * Nudge, admin settings screen.
  *
  * A light touch over native wp-admin. We keep WordPress's own form-table,
  * .wrap and field styling and add only: section grouping (a heading rule with
@@ -91,7 +91,7 @@
 }
 
 /* ------------------------------------------------------------------ *
- * PRO upsell — dismissible banner and "what PRO adds" locked cards.
+ * PRO upsell, dismissible banner and "what PRO adds" locked cards.
  * Pure advertising (no disabled inputs), scoped to .nudge-settings so
  * nothing leaks into the rest of wp-admin. Reuses the page green accent:
  *   #115e2e behind WHITE button text = 7.88:1 on white (AA text ✓).

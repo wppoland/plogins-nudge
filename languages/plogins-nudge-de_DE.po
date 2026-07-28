@@ -20,7 +20,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: nudge.php
 msgid "Nudge - Free Shipping Progress Bar for WooCommerce"
-msgstr "Nudge – Kostenloser Versand-Fortschrittsbalken für WooCommerce"
+msgstr "Nudge, Kostenloser Versand-Fortschrittsbalken für WooCommerce"
 
 #. Plugin URI of the plugin
 #: nudge.php
@@ -51,7 +51,7 @@ msgid ""
 "Nudge - Free Shipping Progress Bar for WooCommerce requires WooCommerce to "
 "be active."
 msgstr ""
-"Nudge – Kostenloser Versand-Fortschrittsbalken für WooCommerce erfordert, "
+"Nudge, Kostenloser Versand-Fortschrittsbalken für WooCommerce erfordert, "
 "dass WooCommerce aktiv ist."
 
 #: src/Admin/Settings.php:41

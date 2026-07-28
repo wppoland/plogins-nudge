@@ -1,4 +1,4 @@
-# Files excluded from the wp.org build. Nudge is self-contained — it has no
+# Files excluded from the wp.org build. Nudge is self-contained, it has no
 # runtime Composer dependencies, so /vendor (dev tooling only) is NOT shipped.
 /.git
 /vendor
