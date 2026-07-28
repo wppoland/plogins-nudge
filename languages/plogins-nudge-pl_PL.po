@@ -7,16 +7,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nudge\n"
 "POT-Creation-Date: 2026-06-16T20:23:00+00:00\n"
 "PO-Revision-Date: 2026-06-15 10:00+0000\n"
-"Last-Translator: WPPoland <hello@plogins.com>\n"
-"Language-Team: Polish <pl_PL@li.org>\n"
+"Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
+"Language-Team: Polish <pl@li.org>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: plogins-nudge\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
+"X-Domain: plogins-nudge\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
 #: nudge.php
@@ -69,6 +69,10 @@ msgid ""
 "much more to add to unlock it. It updates live as the cart changes. The "
 "defaults work out of the box, adjust below only if you want to."
 msgstr ""
+"Nudge pokazuje klientom, jak blisko są bezpłatnej wysyłki i dokładnie, ile "
+"jeszcze muszą dodać, aby ją odblokować. Aktualizuje się na bieżąco wraz ze "
+"zmianami koszyka. Ustawienia domyślne działają od razu, dostosuj poniżej "
+"tylko, jeśli chcesz."
 
 #: src/Admin/Settings.php:110
 msgid "General"
@@ -79,6 +83,8 @@ msgid ""
 "Turn the bar on and choose where shoppers see it. Showing it on both cart "
 "and checkout keeps the goal in front of them through the whole purchase."
 msgstr ""
+"Włącz pasek i wybierz, gdzie widzą go kupujący. Wyświetlanie go zarówno w "
+"koszyku, jak i kasie pozwala zachować cel przed sobą przez cały okres zakupu."
 
 #: src/Admin/Settings.php:115
 msgid "Enable Nudge"
@@ -86,13 +92,15 @@ msgstr "Włącz Nudge"
 
 #: src/Admin/Settings.php:119
 msgid "Show the free-shipping progress bar to shoppers."
-msgstr ""
+msgstr "Pokaż kupującym pasek postępu bezpłatnej wysyłki."
 
 #: src/Admin/Settings.php:121
 msgid ""
 "When off, the bar and its assets never load, no styles or scripts are added "
 "to the front end."
 msgstr ""
+"Gdy jest wyłączony, pasek i jego zasoby nigdy się nie ładują, a do "
+"interfejsu nie są dodawane żadne style ani skrypty."
 
 #: src/Admin/Settings.php:125
 msgid "Cart page"
@@ -100,7 +108,7 @@ msgstr "Strona koszyka"
 
 #: src/Admin/Settings.php:125
 msgid "Show the bar on the cart page, above the totals."
-msgstr ""
+msgstr "Pokaż pasek na stronie koszyka, nad sumami."
 
 #: src/Admin/Settings.php:126
 msgid "Checkout page"
@@ -108,7 +116,7 @@ msgstr "Strona zamówienia"
 
 #: src/Admin/Settings.php:126
 msgid "Show the bar on checkout, so the goal stays visible while they pay."
-msgstr ""
+msgstr "Pokaż pasek przy kasie, aby cel pozostał widoczny podczas płacenia."
 
 #: src/Admin/Settings.php:133
 msgid "Free-shipping threshold"
@@ -120,6 +128,9 @@ msgid ""
 "the bar in sync with your real shipping rules, so it is never wrong after a "
 "price change."
 msgstr ""
+"Skąd pochodzi kwota „otrzymujesz bezpłatną wysyłkę w…”. Automatycznie "
+"synchronizuje pasek z rzeczywistymi zasadami wysyłki, więc nigdy nie jest "
+"źle po zmianie ceny."
 
 #: src/Admin/Settings.php:139
 msgid "Threshold source"
@@ -140,6 +151,10 @@ msgid ""
 "itself when you change that rule. The manual amount below is used as a "
 "fallback when no such method is found."
 msgstr ""
+"Automatycznie odczytuje minimalną kwotę zamówienia z metody bezpłatnej "
+"wysyłki WooCommerce, najmniejszą ze wszystkich stref wysyłki, więc pasek sam "
+"się aktualizuje, gdy zmienisz tę regułę. Kwota ręczna poniżej jest używana "
+"jako rezerwa, gdy nie zostanie znaleziona taka metoda."
 
 #: src/Admin/Settings.php:161
 msgid "Manual amount"
@@ -150,6 +165,9 @@ msgid ""
 "In your store currency, before shipping and taxes. Used when the source is "
 "Manual, or as the fallback for Automatic. Default: 50."
 msgstr ""
+"W walucie Twojego sklepu, przed wysyłką i podatkami. Używane, gdy źródłem "
+"jest Ręczne lub jako źródło zastępcze dla Automatycznego. Wartość domyślna: "
+"50."
 
 #: src/Admin/Settings.php:173
 msgid "Messages"
@@ -163,6 +181,9 @@ msgid ""
 "want the remaining amount, it is replaced with the value formatted in your "
 "store currency (e.g. $12.00)."
 msgstr ""
+"Co mówi pasek przed i po osiągnięciu celu. Wpisz %s w miejscu, gdzie chcesz "
+"pozostałą kwotę, zostanie ona zastąpiona wartością sformatowaną w walucie "
+"Twojego sklepu (np. 12,00 $)."
 
 #: src/Admin/Settings.php:187
 msgid "Progress message"
@@ -170,7 +191,7 @@ msgstr "Komunikat postępu"
 
 #: src/Admin/Settings.php:192 src/Admin/Settings.php:204
 msgid "Shoppers see:"
-msgstr ""
+msgstr "Kupujący widzą:"
 
 #: src/Admin/Settings.php:199
 msgid "Success message"
@@ -180,13 +201,73 @@ msgstr "Komunikat sukcesu"
 msgid "Progress towards free shipping"
 msgstr "Postęp do darmowej dostawy"
 
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Wkrótce"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Wkrótce"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr "od %d zł/rok"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "od %1$s%2$d/rok"
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr "Przejdź na PRO"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr "Brak uprawnień."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr "Zrób więcej dzięki %s"
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr "Odrzuć to powiadomienie"
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr "Odblokuj wszystkie funkcje PRO"
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr "jedna licencja, wszystkie funkcje PRO"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
+msgstr "Co dodaje %s"
+
 #~ msgid ""
 #~ "A friendly progress bar that shows customers how close they are to free "
-#~ "shipping — and how much more to add to unlock it. It updates live as the "
+#~ "shipping, and how much more to add to unlock it. It updates live as the "
 #~ "cart changes."
 #~ msgstr ""
 #~ "Przyjazny pasek postępu, który pokazuje klientom, jak blisko są darmowej "
-#~ "dostawy — i ile jeszcze trzeba dodać, aby ją odblokować. Aktualizuje się "
+#~ "dostawy, i ile jeszcze trzeba dodać, aby ją odblokować. Aktualizuje się "
 #~ "na bieżąco wraz ze zmianami w koszyku."
 
 #~ msgid "Show the free-shipping progress bar."
@@ -212,8 +293,8 @@ msgstr "Postęp do darmowej dostawy"
 
 #, php-format
 #~ msgid ""
-#~ "Use %s in the progress message — it is replaced with the remaining "
+#~ "Use %s in the progress message, it is replaced with the remaining "
 #~ "amount, formatted in your store currency."
 #~ msgstr ""
-#~ "Użyj %s w komunikacie postępu — zostanie zastąpione pozostałą kwotą, "
+#~ "Użyj %s w komunikacie postępu, zostanie zastąpione pozostałą kwotą, "
 #~ "sformatowaną w walucie Twojego sklepu."

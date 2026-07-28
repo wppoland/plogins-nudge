@@ -1,5 +1,5 @@
 /**
- * Nudge — admin settings screen.
+ * Nudge, admin settings screen.
  *
  * A light touch over native wp-admin. We keep WordPress's own form-table,
  * .wrap and field styling and add only: section grouping (a heading rule with
@@ -91,12 +91,13 @@
 }
 
 /* ------------------------------------------------------------------ *
- * PRO upsell — dismissible banner, sidebar promo, "what PRO adds"
+ * PRO upsell, dismissible banner, sidebar promo and "what PRO adds"
  * locked cards. Pure advertising (no disabled inputs), scoped to
- * .nudge-settings, using the plugin's own green accent. The buttons
- * use the darker --nudge-admin-accent-text (#115e2e) so white text
- * clears WCAG AA; the lighter accent is decorative only.
+ * .nudge-settings so nothing leaks into the rest of wp-admin. Reuses
+ * the page green accent:
+ *   #115e2e behind WHITE button text = 7.88:1 on white (AA text ✓).
  * ------------------------------------------------------------------ */
+
 .nudge-settings {
 	--nudge-pro-muted: #646970;
 	--nudge-pro-radius: 8px;
@@ -115,7 +116,7 @@
 	display: flex;
 	align-items: center;
 	gap: 14px;
-	margin: 0 0 var(--nudge-pro-gap);
+	margin: 1em 0 var(--nudge-pro-gap);
 	padding: 12px 16px;
 	border: 1px solid color-mix(in srgb, var(--nudge-admin-accent) 30%, #dcdcde);
 	border-inline-start: 4px solid var(--nudge-admin-accent);
@@ -134,7 +135,7 @@
 .nudge-settings .nudge-pro-banner__dismiss { flex: 0 0 auto; font-size: 18px; line-height: 1; text-decoration: none; color: var(--nudge-pro-muted); padding: 4px; border-radius: 4px; }
 .nudge-settings .nudge-pro-banner__dismiss:hover { color: #1d2327; background: rgba(0, 0, 0, .05); }
 
-/* Accent CTA buttons (override WP blue with the readable dark-green accent) */
+/* Accent CTA buttons (override WP blue with the readable dark green accent) */
 .nudge-settings .nudge-pro-banner__cta.button-primary,
 .nudge-settings .nudge-pro-aside__cta.button-primary {
 	background: var(--nudge-admin-accent-text); border-color: color-mix(in srgb, var(--nudge-admin-accent-text) 80%, #000); color: #fff; text-shadow: none; box-shadow: none;

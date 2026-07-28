@@ -57,7 +57,7 @@ final class Settings implements HasHooks
     }
 
     /**
-     * Load the admin stylesheet only on the Nudge settings screen — never
+     * Load the admin stylesheet only on the Nudge settings screen, never
      * across wp-admin.
      */
     public function enqueueAssets(string $hookSuffix): void

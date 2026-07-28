@@ -1,5 +1,5 @@
 /**
- * Nudge — free-shipping progress bar (storefront, dependency-free).
+ * Nudge, free-shipping progress bar (storefront, dependency-free).
  *
  * WooCommerce re-renders the cart/checkout totals (and therefore our bar) on its
  * own when the cart changes, firing `updated_cart_totals` / `updated_checkout`
@@ -8,7 +8,7 @@
  * is polish: after each update it nudges the fill from its previous width to the
  * new one so the change animates smoothly instead of snapping.
  *
- * No jQuery dependency of our own — we listen on the native event target. (WC
+ * No jQuery dependency of our own, we listen on the native event target. (WC
  * triggers these via jQuery, which dispatches to addEventListener too.) Honours
  * prefers-reduced-motion by skipping the re-animation entirely.
  */
