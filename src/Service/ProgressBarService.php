@@ -16,8 +16,9 @@ use Nudge\Contract\HasHooks;
  * tiny, dependency-free script listens for WooCommerce's `updated_cart_totals`
  * and `updated_checkout` events to animate the width smoothly between renders.
  *
- * Renders on the cart and checkout (classic templates and the Cart/Checkout
- * Blocks).
+ * Renders on the classic cart and checkout templates. The Cart and Checkout
+ * Blocks fire none of these hooks, so a store built on the blocks gets no bar,
+ * and the settings screen says so next to the placement checkboxes.
  *
  * Robustness: when the feature is disabled, the cart is empty, or no
  * free-shipping threshold is configured, the bar is hidden rather than rendered
@@ -50,13 +51,16 @@ final class ProgressBarService implements HasHooks
         add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
 
         if (! empty($settings['show_on_cart'])) {
-            // Renders above the cart totals on the classic cart page.
+            // Both of these live in the classic cart templates: above the totals
+            // and inside them. The Cart block fires neither, so on a block cart
+            // the merchant ticked the box and the shopper saw nothing at all.
+            // The settings screen now warns when the page uses the block.
             add_action('woocommerce_before_cart_totals', [$this, 'renderCartBar']);
-            // Cart/Checkout Blocks: a neutral hook that both blocks honour.
             add_action('woocommerce_cart_totals_after_order_total', [$this, 'renderInlineBar']);
         }
 
         if (! empty($settings['show_on_checkout'])) {
+            // Same story on checkout: classic template hooks only.
             add_action('woocommerce_before_checkout_form', [$this, 'renderCheckoutBar'], 5);
             add_action('woocommerce_review_order_after_order_total', [$this, 'renderInlineBar']);
         }
@@ -152,9 +156,15 @@ final class ProgressBarService implements HasHooks
         $percent   = $threshold > 0.0 ? min(100, (int) round(($total / $threshold) * 100)) : 0;
 
         $remainingHtml = wc_price($remaining);
-        $message       = $reached
-            ? (string) ($settings['message_success'] ?? '')
-            : str_replace('{amount}', $remainingHtml, (string) ($settings['message_progress'] ?? ''));
+
+        // The token was only substituted in the progress copy, so a merchant who
+        // followed the settings screen and put {amount} in the success message
+        // shipped a literal "{amount}" to shoppers. Substitute in whichever
+        // message we render; past the goal the remaining amount is zero, which
+        // is exactly what the field's preview shows.
+        $message = str_replace('{amount}', $remainingHtml, (string) ($reached
+            ? ($settings['message_success'] ?? '')
+            : ($settings['message_progress'] ?? '')));
 
         $this->enqueueAssets();
 

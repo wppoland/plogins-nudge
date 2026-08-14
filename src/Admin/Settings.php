@@ -132,8 +132,24 @@ final class Settings implements HasHooks
                                 </td>
                             </tr>
                             <?php
-                            $this->checkboxRow('show_on_cart', __('Cart page', 'plogins-nudge'), __('Show the bar on the cart page, above the totals.', 'plogins-nudge'), $settings);
-                            $this->checkboxRow('show_on_checkout', __('Checkout page', 'plogins-nudge'), __('Show the bar on checkout, so the goal stays visible while they pay.', 'plogins-nudge'), $settings);
+                            $this->checkboxRow(
+                                'show_on_cart',
+                                __('Cart page', 'plogins-nudge'),
+                                __('Show the bar on the cart page, above the totals.', 'plogins-nudge'),
+                                $settings,
+                                $this->usesBlock('cart', 'woocommerce/cart')
+                                    ? __('Your cart page is built with the Cart block, which the bar cannot hook into. Ticking this box will not show it to shoppers. Switch the page to the [woocommerce_cart] shortcode to use the bar there.', 'plogins-nudge')
+                                    : '',
+                            );
+                            $this->checkboxRow(
+                                'show_on_checkout',
+                                __('Checkout page', 'plogins-nudge'),
+                                __('Show the bar on checkout, so the goal stays visible while they pay.', 'plogins-nudge'),
+                                $settings,
+                                $this->usesBlock('checkout', 'woocommerce/checkout')
+                                    ? __('Your checkout page is built with the Checkout block, which the bar cannot hook into. Ticking this box will not show it to shoppers. Switch the page to the [woocommerce_checkout] shortcode to use the bar there.', 'plogins-nudge')
+                                    : '',
+                            );
                             ?>
                         </tbody>
                     </table>
@@ -185,7 +201,7 @@ final class Settings implements HasHooks
                         <?php
                         printf(
                             /* translators: %s: the {amount} token, shown as a styled chip. */
-                            esc_html__('What the bar says before and after the goal is reached. Write %s where you want the remaining amount, it is replaced with the value formatted in your store currency (e.g. $12.00).', 'plogins-nudge'),
+                            esc_html__('What the bar says before and after the goal is reached. Write %s where you want the remaining amount, it is replaced with the value formatted in your store currency (e.g. $12.00). It works in both fields, but once the goal is reached nothing is remaining, so in the success message it reads as zero.', 'plogins-nudge'),
                             '<span class="nudge-token">{amount}</span>',
                         );
                         ?>
@@ -212,7 +228,13 @@ final class Settings implements HasHooks
                                     <input type="text" id="nudge_message_success" name="<?php echo esc_attr(self::OPTION); ?>[message_success]" value="<?php echo esc_attr($successCopy); ?>" class="large-text" placeholder="<?php echo esc_attr((string) ($defaults['message_success'] ?? '')); ?>" />
                                     <p class="nudge-preview">
                                         <span class="nudge-preview__label"><?php esc_html_e('Shoppers see:', 'plogins-nudge'); ?></span>
-                                        <?php echo esc_html('' !== $successCopy ? $successCopy : (string) ($defaults['message_success'] ?? '')); ?>
+                                        <?php
+                                        // This preview used to echo the success copy raw while the progress
+                                        // one substituted, which hid the fact that an {amount} written here
+                                        // reached shoppers as the literal token. It now substitutes too, at
+                                        // the zero that is genuinely remaining past the goal.
+                                        echo esc_html(str_replace('{amount}', '$0.00', '' !== $successCopy ? $successCopy : (string) ($defaults['message_success'] ?? '')));
+                                        ?>
                                     </p>
                                 </td>
                             </tr>
@@ -229,11 +251,11 @@ final class Settings implements HasHooks
     }
 
     /**
-     * Render a single checkbox row.
+     * Render a single checkbox row, with an optional warning under it.
      *
      * @param array<string, mixed> $settings
      */
-    private function checkboxRow(string $key, string $label, string $help, array $settings): void
+    private function checkboxRow(string $key, string $label, string $help, array $settings, string $warning = ''): void
     {
         $id = 'nudge_' . $key;
         ?>
@@ -244,9 +266,36 @@ final class Settings implements HasHooks
                     <input type="checkbox" id="<?php echo esc_attr($id); ?>" name="<?php echo esc_attr(self::OPTION); ?>[<?php echo esc_attr($key); ?>]" value="1" <?php checked((bool) ($settings[$key] ?? false), true); ?> />
                     <?php echo esc_html($help); ?>
                 </label>
+                <?php if ('' !== $warning) : ?>
+                    <p class="nudge-warning"><?php echo esc_html($warning); ?></p>
+                <?php endif; ?>
             </td>
         </tr>
         <?php
+    }
+
+    /**
+     * Whether a WooCommerce page is built with a block rather than the classic
+     * shortcode.
+     *
+     * The bar renders from classic cart/checkout template hooks, and the Cart
+     * and Checkout blocks fire none of them. Both boxes ship ticked, so on a
+     * block-based store the merchant saw the placement enabled and the shopper
+     * saw no bar at all, with nothing on screen to explain it.
+     */
+    private function usesBlock(string $page, string $block): bool
+    {
+        if (! function_exists('wc_get_page_id')) {
+            return false;
+        }
+
+        $pageId = wc_get_page_id($page);
+
+        if ($pageId <= 0) {
+            return false;
+        }
+
+        return has_block($block, $pageId);
     }
 
     /**
