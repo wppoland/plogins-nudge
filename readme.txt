@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,18 +40,18 @@ always-finished bar.
 
 * Reads the free-shipping threshold automatically from your active WooCommerce
   free-shipping methods, or takes a fixed amount you set by hand.
-* Re-renders with the cart on both the classic Cart/Checkout pages and the
-  Cart/Checkout Blocks. A small script (no jQuery of its own) animates the width
-  between updates.
+* Re-renders with the cart on the classic Cart and Checkout pages (the ones
+  built with the `[woocommerce_cart]` and `[woocommerce_checkout]` shortcodes).
+  A small script (no jQuery of its own) animates the width between updates.
 * Exposes a real `role="progressbar"` with `aria-valuenow`/`min`/`max` and a
   readable text message for screen readers; honours `prefers-reduced-motion`.
 * Reserves the bar's height before paint, so adding it doesn't shift the layout.
 * Styles the bar with `--nudge-*` CSS custom properties and adapts to dark colour
   schemes, so themes can recolour it without editing markup.
 * Lets you write the progress and success messages, with an `{amount}` token in
-  the progress message for the remaining total.
-* Ships a POT file, removes its options on uninstall, and declares HPOS and
-  Cart/Checkout Blocks compatibility.
+  either one for the remaining total.
+* Ships a POT file, removes its options on uninstall, and declares HPOS
+  compatibility.
 
 Source code and bug reports live on GitHub: https://github.com/wppoland/plogins-nudge
 
@@ -81,8 +81,11 @@ entirely until there's a real threshold to count down to.
 
 = Does it work with the Cart and Checkout blocks? =
 
-Yes. It renders on the classic Cart/Checkout templates and on the WooCommerce
-Cart/Checkout blocks, and declares HPOS and Cart/Checkout Blocks compatibility.
+Not yet. The bar renders on the classic Cart and Checkout pages, the ones built
+with the `[woocommerce_cart]` and `[woocommerce_checkout]` shortcodes. It is
+safe alongside the blocks and declares Cart/Checkout Blocks compatibility, but
+it draws nothing inside them. If your pages use the blocks, the Nudge settings
+screen tells you so next to the placement checkboxes.
 
 = Can I change the wording and colours? =
 
@@ -109,6 +112,11 @@ Nudge does not connect to any external service. It does not send analytics, regi
 Plogins Nudge includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-nudge`, so WordPress.org language packs can also override or extend these bundled translations.
 
 == Changelog ==
+
+= 1.0.5 =
+* The settings screen now warns you when your cart or checkout page is built with the WooCommerce Cart or Checkout block, where the bar cannot appear, instead of leaving the placement box ticked with nothing showing on the storefront.
+* The `{amount}` token now works in the success message too, so it no longer reaches shoppers as literal text.
+* Corrected the plugin description: the bar renders on the classic cart and checkout pages, not inside the Cart and Checkout blocks.
 
 = 1.0.3 =
 * Translations: completed Polish, German and Spanish for the PRO upgrade panel.
