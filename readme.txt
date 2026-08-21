@@ -30,10 +30,10 @@ always-finished bar.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/plogins-nudge/docs/
-* **Plugin page** - https://plogins.com/plogins-nudge/
-* **Source code** - https://github.com/wppoland/plogins-nudge
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-nudge/issues
+* **Documentation**: [plogins.com/plogins-nudge/docs/](https://plogins.com/plogins-nudge/docs/)
+* **Plugin page**: [plogins.com/plogins-nudge/](https://plogins.com/plogins-nudge/)
+* **Source code**: [github.com/wppoland/plogins-nudge](https://github.com/wppoland/plogins-nudge)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-nudge/issues](https://github.com/wppoland/plogins-nudge/issues)
 
 
 = What it does =
@@ -53,7 +53,7 @@ always-finished bar.
 * Ships a POT file, removes its options on uninstall, and declares HPOS
   compatibility.
 
-Source code and bug reports live on GitHub: https://github.com/wppoland/plogins-nudge
+Source code and bug reports live on GitHub: [github.com/wppoland/plogins-nudge](https://github.com/wppoland/plogins-nudge)
 
 == Installation ==
 
