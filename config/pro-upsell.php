@@ -15,7 +15,6 @@ return [
     'sellable'   => true,
     'price_from' => 19,
     'currency'   => 'EUR',
-    'price_pln'  => 85,
     'lead'       => [
         'en' => 'Floating bar, per-zone goals, tiered rewards and conversion analytics ship in the current PRO release.',
         'pl' => 'Pływający pasek, cele per strefa, nagrody progowe i analityka konwersji są dostępne w bieżącym wydaniu PRO.',
