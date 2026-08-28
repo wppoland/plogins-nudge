@@ -3,7 +3,7 @@
  * Plugin Name:       Nudge - Free Shipping Bar for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-nudge/
  * Description:        Show a free-shipping progress bar that nudges shoppers to add more to their cart.
- * Version:           1.0.5
+ * Version:           1.0.6
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
