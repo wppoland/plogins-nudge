@@ -7,6 +7,7 @@ namespace Nudge\Admin;
 defined('ABSPATH') || exit;
 
 use Nudge\Contract\HasHooks;
+use Nudge\Service\Texts;
 
 /**
  * Admin settings page registered as a WooCommerce submenu ("WooCommerce →
@@ -100,7 +101,13 @@ final class Settings implements HasHooks
         $settings = $this->settings();
 
         /** @var array<string, mixed> $defaults */
-        $defaults     = require NUDGE_DIR . 'config/defaults.php';
+        $defaults = require NUDGE_DIR . 'config/defaults.php';
+
+        // The message fields render the RAW stored value, never the resolved
+        // one: putting the translated default in the input would save it back
+        // and freeze one language into the option. The translated default is
+        // shown as the placeholder and in the preview instead.
+        $textDefaults = Texts::defaults();
         $progressCopy = (string) ($settings['message_progress'] ?? '');
         $successCopy  = (string) ($settings['message_success'] ?? '');
         ?>
@@ -213,10 +220,10 @@ final class Settings implements HasHooks
                                     <label for="nudge_message_progress"><?php esc_html_e('Progress message', 'plogins-nudge'); ?></label>
                                 </th>
                                 <td>
-                                    <input type="text" id="nudge_message_progress" name="<?php echo esc_attr(self::OPTION); ?>[message_progress]" value="<?php echo esc_attr($progressCopy); ?>" class="large-text" placeholder="<?php echo esc_attr((string) ($defaults['message_progress'] ?? '')); ?>" />
+                                    <input type="text" id="nudge_message_progress" name="<?php echo esc_attr(self::OPTION); ?>[message_progress]" value="<?php echo esc_attr($progressCopy); ?>" class="large-text" placeholder="<?php echo esc_attr($textDefaults['message_progress']); ?>" />
                                     <p class="nudge-preview">
                                         <span class="nudge-preview__label"><?php esc_html_e('Shoppers see:', 'plogins-nudge'); ?></span>
-                                        <?php echo esc_html(str_replace('{amount}', '$12.00', '' !== $progressCopy ? $progressCopy : (string) ($defaults['message_progress'] ?? ''))); ?>
+                                        <?php echo esc_html(str_replace('{amount}', '$12.00', '' !== $progressCopy ? $progressCopy : $textDefaults['message_progress'])); ?>
                                     </p>
                                 </td>
                             </tr>
@@ -225,7 +232,7 @@ final class Settings implements HasHooks
                                     <label for="nudge_message_success"><?php esc_html_e('Success message', 'plogins-nudge'); ?></label>
                                 </th>
                                 <td>
-                                    <input type="text" id="nudge_message_success" name="<?php echo esc_attr(self::OPTION); ?>[message_success]" value="<?php echo esc_attr($successCopy); ?>" class="large-text" placeholder="<?php echo esc_attr((string) ($defaults['message_success'] ?? '')); ?>" />
+                                    <input type="text" id="nudge_message_success" name="<?php echo esc_attr(self::OPTION); ?>[message_success]" value="<?php echo esc_attr($successCopy); ?>" class="large-text" placeholder="<?php echo esc_attr($textDefaults['message_success']); ?>" />
                                     <p class="nudge-preview">
                                         <span class="nudge-preview__label"><?php esc_html_e('Shoppers see:', 'plogins-nudge'); ?></span>
                                         <?php
@@ -233,7 +240,7 @@ final class Settings implements HasHooks
                                         // one substituted, which hid the fact that an {amount} written here
                                         // reached shoppers as the literal token. It now substitutes too, at
                                         // the zero that is genuinely remaining past the goal.
-                                        echo esc_html(str_replace('{amount}', '$0.00', '' !== $successCopy ? $successCopy : (string) ($defaults['message_success'] ?? '')));
+                                        echo esc_html(str_replace('{amount}', '$0.00', '' !== $successCopy ? $successCopy : $textDefaults['message_success']));
                                         ?>
                                     </p>
                                 </td>

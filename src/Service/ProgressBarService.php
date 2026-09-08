@@ -209,7 +209,11 @@ final class ProgressBarService implements HasHooks
     }
 
     /**
-     * Stored settings merged over packaged defaults.
+     * Stored settings merged over packaged defaults, with every empty
+     * customer-facing message filled from the translated defaults.
+     *
+     * Texts::apply() runs here, on the way to the storefront, and nowhere near
+     * a save, so no language is ever written into the option.
      *
      * @return array<string, mixed>
      */
@@ -224,6 +228,6 @@ final class ProgressBarService implements HasHooks
         /** @var array<string, mixed> $defaults */
         $defaults = require NUDGE_DIR . 'config/defaults.php';
 
-        return array_merge($defaults, $stored);
+        return Texts::apply(array_merge($defaults, $stored));
     }
 }
