@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,9 +57,9 @@ Source code and bug reports live on GitHub: [github.com/wppoland/plogins-nudge](
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/nudge`, or install via Plugins → Add New.
+1. Upload the plugin to `/wp-content/plugins/nudge`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be active.
-3. Go to **WooCommerce → Nudge**, enable the bar, and choose where it shows.
+3. Go to **WooCommerce > Nudge**, enable the bar, and choose where it shows.
 
 == Frequently Asked Questions ==
 
@@ -113,6 +113,10 @@ Plogins Nudge is fully translatable and ships the `plogins-nudge.pot` template. 
 
 == Changelog ==
 
+= 1.0.11 =
+* Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
+* Fixed: arrow glyphs in the admin menu paths, and in the strings handed to translators. An arrow inside a translatable string makes the glyph every translator's problem and changes the layout in any locale that drops it.
+
 = 1.0.10 =
 * Fixed: deleting the plugin left the per-user "dismiss" flag from the PRO notice in the database. Uninstall now removes it for every user, not just the one who dismissed it.
 
@@ -155,4 +159,4 @@ Plogins Nudge is fully translatable and ships the `plogins-nudge.pot` template. 
 * `nudge/threshold` filter and `ThresholdResolver::zoneThreshold()` for PRO per-zone goals.
 
 = 0.1.0 =
-* First release: free-shipping progress bar for the cart and checkout, with an automatic or manual threshold, live updates as the cart changes, editable messages, dark-mode and reduced-motion support, and a settings screen under WooCommerce → Nudge.
+* First release: free-shipping progress bar for the cart and checkout, with an automatic or manual threshold, live updates as the cart changes, editable messages, dark-mode and reduced-motion support, and a settings screen under WooCommerce > Nudge.

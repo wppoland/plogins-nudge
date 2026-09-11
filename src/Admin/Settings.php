@@ -10,7 +10,7 @@ use Nudge\Contract\HasHooks;
 use Nudge\Service\Texts;
 
 /**
- * Admin settings page registered as a WooCommerce submenu ("WooCommerce →
+ * Admin settings page registered as a WooCommerce submenu ("WooCommerce >
  * Nudge").
  *
  * Stores settings in the `nudge_settings` option (array): enable, where the bar
