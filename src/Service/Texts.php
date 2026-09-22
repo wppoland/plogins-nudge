@@ -29,8 +29,8 @@ final class Texts
     public static function defaults(): array
     {
         return [
-            'message_progress' => __('Add {amount} more to get free shipping!', 'plogins-nudge'),
-            'message_success'  => __('You have unlocked free shipping!', 'plogins-nudge'),
+            'message_progress' => __('Add {amount} more to get free shipping!', 'instigo'),
+            'message_success'  => __('You have unlocked free shipping!', 'instigo'),
         ];
     }
 

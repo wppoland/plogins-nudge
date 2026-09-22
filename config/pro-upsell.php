@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Nudge Pro',
+    'name'       => 'Instigo Pro',
     'url'        => 'https://plogins.com/plogins-nudge-pro/pricing/',
     'sellable'   => true,
     'price_from' => 19,

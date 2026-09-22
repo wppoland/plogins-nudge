@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Plogins Nudge - Free Shipping Bar for WooCommerce
+ * Plugin Name:       Instigo - Free Shipping Bar for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-nudge/
  * Description:        Show a free-shipping progress bar that nudges shoppers to add more to their cart.
- * Version:           1.0.11
+ * Version:           1.1.0
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -11,7 +11,7 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       plogins-nudge
+ * Text Domain:       instigo
  * Domain Path:       /languages
  * WC requires at least: 8.0
  * WC tested up to: 11.0
@@ -25,7 +25,7 @@ namespace Nudge;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '1.0.11';
+const VERSION     = '1.1.0';
 const PLUGIN_FILE = __FILE__;
 
 define('NUDGE_DIR', plugin_dir_path(__FILE__));
@@ -45,7 +45,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Nudge - Free Shipping Progress Bar for WooCommerce requires WooCommerce to be active.', 'plogins-nudge');
+            echo esc_html__('Instigo - Free Shipping Bar for WooCommerce requires WooCommerce to be active.', 'instigo');
             echo '</p></div>';
         });
         return;

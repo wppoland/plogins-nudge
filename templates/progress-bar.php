@@ -55,7 +55,7 @@ if ($tierMarkers !== []) {
         aria-valuemin="0"
         aria-valuemax="100"
         aria-valuenow="<?php echo esc_attr((string) $percent); ?>"
-        aria-label="<?php esc_attr_e('Progress towards free shipping', 'plogins-nudge'); ?>"
+        aria-label="<?php esc_attr_e('Progress towards free shipping', 'instigo'); ?>"
     >
         <?php foreach ($tierMarkers as $markerPercent) :
             $markerPercent = max(0, min(99, (int) $markerPercent));
