@@ -21,12 +21,12 @@ msgstr ""
 #. Plugin Name of the plugin
 #: instigo.php
 msgid "Instigo - Free Shipping Bar for WooCommerce"
-msgstr ""
+msgstr "Instigo - pasek darmowej dostawy dla WooCommerce"
 
 #. Plugin URI of the plugin
 #: instigo.php
 msgid "https://plogins.com/plogins-nudge/"
-msgstr ""
+msgstr "https://plogins.com/plogins-nudge/"
 
 #. Description of the plugin
 #: instigo.php
@@ -40,18 +40,18 @@ msgstr ""
 #. Author of the plugin
 #: instigo.php
 msgid "WPPoland.com"
-msgstr ""
+msgstr "WPPoland.com"
 
 #. Author URI of the plugin
 #: instigo.php
 msgid "https://wppoland.com"
-msgstr ""
+msgstr "https://wppoland.com"
 
 #: instigo.php:48
 msgid ""
 "Instigo - Free Shipping Bar for WooCommerce requires WooCommerce to be "
 "active."
-msgstr ""
+msgstr "Instigo - pasek darmowej dostawy dla WooCommerce wymaga aktywnego WooCommerce."
 
 #: src/Admin/ProUpsell.php:78
 msgid "Wkrótce"
@@ -109,18 +109,18 @@ msgstr "Co dodaje %s"
 
 #: src/Admin/Settings.php:50
 msgid "Instigo: free shipping bar"
-msgstr ""
+msgstr "Instigo: pasek darmowej dostawy"
 
 #: src/Admin/Settings.php:51
 msgid "Instigo"
-msgstr ""
+msgstr "Instigo"
 
 #: src/Admin/Settings.php:120
 msgid ""
 "Instigo shows customers how close they are to free shipping and exactly how "
 "much more to add to unlock it. It updates live as the cart changes. The "
 "defaults work out of the box, adjust below only if you want to."
-msgstr ""
+msgstr "Instigo pokazuje klientom, jak blisko są darmowej dostawy i ile dokładnie muszą dodać, aby ją odblokować. Aktualizuje się na żywo wraz ze zmianami koszyka. Domyślne ustawienia działają od razu, dostosuj poniższe tylko wtedy, gdy chcesz."
 
 #: src/Admin/Settings.php:127
 msgid "General"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: src/Admin/Settings.php:132
 msgid "Enable Instigo"
-msgstr ""
+msgstr "Włącz Instigo"
 
 #: src/Admin/Settings.php:136
 msgid "Show the free-shipping progress bar to shoppers."
@@ -163,7 +163,7 @@ msgid ""
 "Your cart page is built with the Cart block, which the bar cannot hook into. "
 "Ticking this box will not show it to shoppers. Switch the page to the "
 "[woocommerce_cart] shortcode to use the bar there."
-msgstr ""
+msgstr "Twoja strona koszyka jest zbudowana z bloku Koszyk, do którego pasek nie może się podpiąć. Zaznaczenie tego pola nie pokaże go kupującym. Przełącz stronę na krótki kod [woocommerce_cart], aby używać tam paska."
 
 #: src/Admin/Settings.php:153
 msgid "Checkout page"
@@ -178,7 +178,7 @@ msgid ""
 "Your checkout page is built with the Checkout block, which the bar cannot "
 "hook into. Ticking this box will not show it to shoppers. Switch the page to "
 "the [woocommerce_checkout] shortcode to use the bar there."
-msgstr ""
+msgstr "Twoja strona zamówienia jest zbudowana z bloku Realizacja zamówienia, do którego pasek nie może się podpiąć. Zaznaczenie tego pola nie pokaże go kupującym. Przełącz stronę na krótki kod [woocommerce_checkout], aby używać tam paska."
 
 #: src/Admin/Settings.php:166
 msgid "Free-shipping threshold"
@@ -243,7 +243,7 @@ msgid ""
 "want the remaining amount, it is replaced with the value formatted in your "
 "store currency (e.g. $12.00). It works in both fields, but once the goal is "
 "reached nothing is remaining, so in the success message it reads as zero."
-msgstr ""
+msgstr "Co pasek mówi przed osiągnięciem celu i po nim. Wpisz %s tam, gdzie ma się pojawić brakująca kwota, zostanie zastąpione wartością sformatowaną w walucie Twojego sklepu (np. 12,00 zł). Działa w obu polach, ale po osiągnięciu celu nic już nie brakuje, więc w komunikacie sukcesu odczyta się jako zero."
 
 #: src/Admin/Settings.php:220
 msgid "Progress message"
@@ -259,11 +259,11 @@ msgstr "Komunikat sukcesu"
 
 #: src/Service/Texts.php:32
 msgid "Add {amount} more to get free shipping!"
-msgstr ""
+msgstr "Dodaj jeszcze {amount}, aby otrzymać darmową dostawę!"
 
 #: src/Service/Texts.php:33
 msgid "You have unlocked free shipping!"
-msgstr ""
+msgstr "Masz darmową dostawę!"
 
 #: templates/progress-bar.php:58
 msgid "Progress towards free shipping"
