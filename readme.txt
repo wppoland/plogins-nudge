@@ -1,11 +1,11 @@
-=== Instigo - Free Shipping Bar for WooCommerce ===
+=== Shiplume - Free Shipping Bar for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, free shipping, cart, progress bar, conversions
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,19 +13,19 @@ A free-shipping progress bar that tells WooCommerce shoppers how much more to ad
 
 == Description ==
 
-Instigo shows shoppers how far their cart is from your free-shipping threshold and
+Shiplume shows shoppers how far their cart is from your free-shipping threshold and
 how much more they need to add to reach it. The message updates as the cart
 changes, so "free shipping over $50" stops being fine print and becomes a number
 the customer can act on.
 
-By default the threshold comes straight from WooCommerce. Instigo looks at your
+By default the threshold comes straight from WooCommerce. Shiplume looks at your
 enabled free-shipping methods across all shipping zones and uses the lowest
 minimum order amount it finds, so you don't maintain the figure in two places. If
 you'd rather set it yourself, switch to Manual mode and type a fixed amount; that
 amount is also used as a fallback when Automatic mode finds no qualifying method.
 
 When there's nothing useful to show (the bar is disabled, the cart is empty, or no
-threshold is configured) Instigo renders nothing instead of an empty or
+threshold is configured) Shiplume renders nothing instead of an empty or
 always-finished bar.
 
 = Documentation and links =
@@ -57,26 +57,26 @@ Source code and bug reports live on GitHub: [github.com/wppoland/plogins-nudge](
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/instigo`, or install via Plugins > Add New.
+1. Upload the plugin to `/wp-content/plugins/shiplume`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be active.
-3. Go to **WooCommerce > Instigo**, enable the bar, and choose where it shows.
+3. Go to **WooCommerce > Shiplume**, enable the bar, and choose where it shows.
 
 == Frequently Asked Questions ==
 
 = Does it require WooCommerce? =
 
-Yes. Instigo does nothing until WooCommerce is active.
+Yes. Shiplume does nothing until WooCommerce is active.
 
 = Where does the free-shipping amount come from? =
 
-In Automatic mode, Instigo reads the minimum order amount from your enabled
+In Automatic mode, Shiplume reads the minimum order amount from your enabled
 WooCommerce free-shipping methods and uses the smallest one across your shipping
 zones. In Manual mode you set a fixed amount yourself. If Automatic mode finds no
 method with a minimum order amount, it uses the manual amount instead.
 
 = What shows when no free-shipping goal is configured? =
 
-Nothing. Rather than render an empty or always-complete bar, Instigo skips output
+Nothing. Rather than render an empty or always-complete bar, Shiplume skips output
 entirely until there's a real threshold to count down to.
 
 = Does it work with the Cart and Checkout blocks? =
@@ -84,7 +84,7 @@ entirely until there's a real threshold to count down to.
 Not yet. The bar renders on the classic Cart and Checkout pages, the ones built
 with the `[woocommerce_cart]` and `[woocommerce_checkout]` shortcodes. It is
 safe alongside the blocks and declares Cart/Checkout Blocks compatibility, but
-it draws nothing inside them. If your pages use the blocks, the Instigo settings
+it draws nothing inside them. If your pages use the blocks, the Shiplume settings
 screen tells you so next to the placement checkboxes.
 
 = Can I change the wording and colours? =
@@ -101,17 +101,20 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 == Screenshots ==
 
 1. The free-shipping progress bar on the cart.
-2. The Instigo settings screen.
+2. The Shiplume settings screen.
 
 == External Services ==
 
-Instigo does not connect to any external service. It does not send analytics, register a licence, load remote fonts or scripts, or make any HTTP request off your server. Everything it needs (your free-shipping threshold and cart totals) comes from WooCommerce on the same site, and the bar's stylesheet and small animation script are served from the plugin folder, not a CDN. The only data Instigo stores is two WordPress options on your own database (`nudge_settings` for your configuration and `nudge_db_version` for upgrades), both removed when you delete the plugin.
+Shiplume does not connect to any external service. It does not send analytics, register a licence, load remote fonts or scripts, or make any HTTP request off your server. Everything it needs (your free-shipping threshold and cart totals) comes from WooCommerce on the same site, and the bar's stylesheet and small animation script are served from the plugin folder, not a CDN. The only data Shiplume stores is two WordPress options on your own database (`nudge_settings` for your configuration and `nudge_db_version` for upgrades), both removed when you delete the plugin.
 
 == Translations ==
 
-Instigo is fully translatable and ships the `instigo.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
+Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.2 =
+* Renamed to Shiplume, a plain English name in place of the Esperanto one. The text domain and the plugin folder follow the name; the stored settings, options and every hook are unchanged.
 
 = 1.1.1 =
 * The sidebar upgrade promo now follows the same dismissal as the banner. Dismissing the banner used to leave a full-height advert on the settings screen for good, which is not what the WordPress.org guideline on upgrade prompts means by used with moderation.
