@@ -4,159 +4,159 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nudge - Free Shipping Progress Bar for WooCommerce "
 "0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/instigo\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shiplume\n"
 "POT-Creation-Date: 2026-09-08T13:42:18+00:00\n"
 "PO-Revision-Date: 2026-06-16T20:23:00+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
-"Language: es_ES\n"
+"Language-Team: German <de@li.org>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: instigo\n"
+"X-Domain: shiplume\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
-#: instigo.php
-msgid "Instigo - Free Shipping Bar for WooCommerce"
+#: shiplume.php
+msgid "Shiplume - Free Shipping Bar for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: instigo.php
+#: shiplume.php
 msgid "https://plogins.com/plogins-nudge/"
 msgstr ""
 
 #. Description of the plugin
-#: instigo.php
+#: shiplume.php
 msgid ""
 "Show a free-shipping progress bar that nudges shoppers to add more to their "
 "cart."
 msgstr ""
-"Muestre una barra de progreso de envío gratuito que impulse a los "
-"compradores a añadir más a su carrito."
+"Zeige einen Fortschrittsbalken für den kostenlosen Versand an, der Käufer "
+"dazu anregt, mehr in ihren Warenkorb zu legen."
 
 #. Author of the plugin
-#: instigo.php
+#: shiplume.php
 msgid "WPPoland.com"
 msgstr ""
 
 #. Author URI of the plugin
-#: instigo.php
+#: shiplume.php
 msgid "https://wppoland.com"
 msgstr ""
 
-#: instigo.php:48
+#: shiplume.php:48
 msgid ""
-"Instigo - Free Shipping Bar for WooCommerce requires WooCommerce to be "
+"Shiplume - Free Shipping Bar for WooCommerce requires WooCommerce to be "
 "active."
 msgstr ""
 
 #: src/Admin/ProUpsell.php:78
 msgid "Wkrótce"
-msgstr "Próximamente"
+msgstr "Demnächst"
 
 #: src/Admin/ProUpsell.php:78
 msgid "Coming soon"
-msgstr "Próximamente"
+msgstr "Demnächst"
 
 #. translators: 1: currency symbol, 2: yearly price
 #: src/Admin/ProUpsell.php:84
 #, php-format
 msgid "from %1$s%2$d/yr"
-msgstr "desde %1$s%2$d/año"
+msgstr "ab %1$s%2$d/Jahr"
 
 #: src/Admin/ProUpsell.php:93
 msgid "Upgrade to PRO"
-msgstr "Mejora a PRO"
+msgstr "Auf PRO upgraden"
 
 #: src/Admin/ProUpsell.php:94
 msgid "Powiadom mnie"
-msgstr "Avísame"
+msgstr "Benachrichtige mich"
 
 #: src/Admin/ProUpsell.php:94
 msgid "Get notified"
-msgstr "Avísame"
+msgstr "Benachrichtige mich"
 
 #: src/Admin/ProUpsell.php:124
 msgid "Permission denied."
-msgstr "Permiso denegado."
+msgstr "Zugriff verweigert."
 
 #. translators: %s: PRO edition name
 #: src/Admin/ProUpsell.php:154
 #, php-format
 msgid "Do more with %s"
-msgstr "Haz más con %s"
+msgstr "Mehr erreichen mit %s"
 
 #: src/Admin/ProUpsell.php:161
 msgid "Dismiss this notice"
-msgstr "Descartar este aviso"
+msgstr "Diesen Hinweis ausblenden"
 
 #: src/Admin/ProUpsell.php:178
 msgid "Unlock every PRO feature"
-msgstr "Desbloquea todas las funciones PRO"
+msgstr "Alle PRO-Funktionen freischalten"
 
 #: src/Admin/ProUpsell.php:191
 msgid "one licence, every PRO feature"
-msgstr "una licencia, todas las funciones PRO"
+msgstr "eine Lizenz, alle PRO-Funktionen"
 
 #. translators: %s: PRO edition name
 #: src/Admin/ProUpsell.php:210
 #, php-format
 msgid "What %s adds"
-msgstr "Lo que añade %s"
+msgstr "Was %s ergänzt"
 
 #: src/Admin/Settings.php:50
-msgid "Instigo: free shipping bar"
+msgid "Shiplume: free shipping bar"
 msgstr ""
 
 #: src/Admin/Settings.php:51
-msgid "Instigo"
+msgid "Shiplume"
 msgstr ""
 
 #: src/Admin/Settings.php:120
 msgid ""
-"Instigo shows customers how close they are to free shipping and exactly how "
+"Shiplume shows customers how close they are to free shipping and exactly how "
 "much more to add to unlock it. It updates live as the cart changes. The "
 "defaults work out of the box, adjust below only if you want to."
 msgstr ""
 
 #: src/Admin/Settings.php:127
 msgid "General"
-msgstr "General"
+msgstr "Allgemein"
 
 #: src/Admin/Settings.php:128
 msgid ""
 "Turn the bar on and choose where shoppers see it. Showing it on both cart "
 "and checkout keeps the goal in front of them through the whole purchase."
 msgstr ""
-"Encienda la barra y elija dónde la ven los compradores. Mostrarlo tanto en "
-"el carrito como en el pago mantiene el objetivo frente a ellos durante toda "
-"la compra."
+"Schalte die Leiste ein und wähle aus, wo Käufer sie sehen können. Durch die "
+"Anzeige im Warenkorb und an der Kasse bleibt das Ziel während des gesamten "
+"Kaufvorgangs vor Augen."
 
 #: src/Admin/Settings.php:132
-msgid "Enable Instigo"
+msgid "Enable Shiplume"
 msgstr ""
 
 #: src/Admin/Settings.php:136
 msgid "Show the free-shipping progress bar to shoppers."
-msgstr "Muestre la barra de progreso del envío gratuito a los compradores."
+msgstr "Zeige Käufern den Fortschrittsbalken für den kostenlosen Versand an."
 
 #: src/Admin/Settings.php:138
 msgid ""
 "When off, the bar and its assets never load, no styles or scripts are added "
 "to the front end."
 msgstr ""
-"Cuando está desactivada, la barra y sus recursos nunca se cargan, no se "
-"agregan estilos ni scripts al front-end."
+"Wenn diese Option deaktiviert ist, werden die Leiste und ihre Assets nie "
+"geladen und dem Frontend werden keine Stile oder Skripte hinzugefügt."
 
 #: src/Admin/Settings.php:144
 msgid "Cart page"
-msgstr "Página del carrito"
+msgstr "Warenkorbseite"
 
 #: src/Admin/Settings.php:145
 msgid "Show the bar on the cart page, above the totals."
-msgstr "Muestra la barra en la página del carrito, encima de los totales."
+msgstr "Zeige die Leiste auf der Warenkorbseite über den Gesamtsummen an."
 
 #: src/Admin/Settings.php:148
 msgid ""
@@ -167,13 +167,13 @@ msgstr ""
 
 #: src/Admin/Settings.php:153
 msgid "Checkout page"
-msgstr "página de pago"
+msgstr "Kassenseite"
 
 #: src/Admin/Settings.php:154
 msgid "Show the bar on checkout, so the goal stays visible while they pay."
 msgstr ""
-"Muestre la barra al finalizar la compra, para que el objetivo permanezca "
-"visible mientras pagan."
+"Zeige den Balken an der Kasse an, damit das Ziel beim Bezahlen sichtbar "
+"bleibt."
 
 #: src/Admin/Settings.php:157
 msgid ""
@@ -184,7 +184,7 @@ msgstr ""
 
 #: src/Admin/Settings.php:166
 msgid "Free-shipping threshold"
-msgstr "Umbral de envío gratuito"
+msgstr "Schwellenwert für den kostenlosen Versand"
 
 #: src/Admin/Settings.php:167
 msgid ""
@@ -192,21 +192,21 @@ msgid ""
 "the bar in sync with your real shipping rules, so it is never wrong after a "
 "price change."
 msgstr ""
-"De dónde viene el importe «consigues el envío gratis a partir de…». "
-"Automático mantiene la barra sincronizada con sus reglas de envío reales, "
-"para que nunca se equivoque tras un cambio de precio."
+"Woher der Betrag „Kostenloser Versand bei…“ kommt. Automatisch "
+"synchronisiert sich die Leiste mit deinen tatsächlichen Versandregeln, "
+"sodass sie nach einer Preisänderung nie falsch ist."
 
 #: src/Admin/Settings.php:172
 msgid "Threshold source"
-msgstr "Fuente umbral"
+msgstr "Schwellenwertquelle"
 
 #: src/Admin/Settings.php:179
 msgid "Automatic (from free-shipping method)"
-msgstr "Automático (desde método de envío gratuito)"
+msgstr "Automatisch (von der kostenlosen Versandmethode)"
 
 #: src/Admin/Settings.php:180
 msgid "Manual (fixed amount)"
-msgstr "Manual (cantidad fija)"
+msgstr "Manuell (Festbetrag)"
 
 #: src/Admin/Settings.php:189
 msgid ""
@@ -215,26 +215,27 @@ msgid ""
 "itself when you change that rule. The manual amount below is used as a "
 "fallback when no such method is found."
 msgstr ""
-"Automático lee el monto mínimo del pedido de su método de envío gratuito de "
-"WooCommerce, el más pequeño en sus zonas de envío, por lo que la barra se "
-"actualiza sola cuando cambia esa regla. La cantidad manual a continuación se "
-"utiliza como alternativa cuando no se encuentra dicho método."
+"Automatisch liest den Mindestbestellwert aus deiner kostenlosen WooCommerce-"
+"Versandmethode, den kleinsten in deinen Versandzonen, sodass die Leiste sich "
+"selbst aktualisiert, wenn du diese Regel änderst. Der unten stehende "
+"manuelle Betrag wird als Ersatz verwendet, wenn keine solche Methode "
+"gefunden wird."
 
 #: src/Admin/Settings.php:194
 msgid "Manual amount"
-msgstr "Cantidad manual"
+msgstr "Manueller Betrag"
 
 #: src/Admin/Settings.php:198
 msgid ""
 "In your store currency, before shipping and taxes. Used when the source is "
 "Manual, or as the fallback for Automatic. Default: 50."
 msgstr ""
-"En la moneda de tu tienda, antes de envío e impuestos. Se utiliza cuando la "
-"fuente es Manual o como alternativa para Automático. Predeterminado: 50."
+"In der Währung deines Shops, vor Versand und Steuern. Wird verwendet, wenn "
+"die Quelle „Manuell“ ist, oder als Ersatz für „Automatisch“. Standard: 50."
 
 #: src/Admin/Settings.php:206
 msgid "Messages"
-msgstr "Mensajes"
+msgstr "Nachrichten"
 
 #. translators: %s: the {amount} token, shown as a styled chip.
 #: src/Admin/Settings.php:211
@@ -248,15 +249,15 @@ msgstr ""
 
 #: src/Admin/Settings.php:220
 msgid "Progress message"
-msgstr "Mensaje de progreso"
+msgstr "Fortschrittsmeldung"
 
 #: src/Admin/Settings.php:225 src/Admin/Settings.php:237
 msgid "Shoppers see:"
-msgstr "Los compradores ven:"
+msgstr "Käufer sehen:"
 
 #: src/Admin/Settings.php:232
 msgid "Success message"
-msgstr "Mensaje de éxito"
+msgstr "Erfolgsmeldung"
 
 #: src/Service/Texts.php:32
 msgid "Add {amount} more to get free shipping!"
@@ -268,13 +269,13 @@ msgstr ""
 
 #: templates/progress-bar.php:58
 msgid "Progress towards free shipping"
-msgstr "Progreso hacia el envío gratuito"
+msgstr "Fortschritte in Richtung kostenlosem Versand"
 
 #~ msgid "Nudge - Free Shipping Progress Bar for WooCommerce"
-#~ msgstr "Nudge - Barra de progreso de envío gratuita para WooCommerce"
+#~ msgstr "Nudge, Kostenloser Versand-Fortschrittsbalken für WooCommerce"
 
 #~ msgid "https://plogins.com/nudge/"
-#~ msgstr "https://plogins.com/es/nudge/"
+#~ msgstr "https://plogins.com/de/nudge/"
 
 #~ msgid "WPPoland"
 #~ msgstr "WPPoland"
@@ -286,11 +287,11 @@ msgstr "Progreso hacia el envío gratuito"
 #~ "Nudge - Free Shipping Progress Bar for WooCommerce requires WooCommerce "
 #~ "to be active."
 #~ msgstr ""
-#~ "Nudge: la barra de progreso de envío gratuito para WooCommerce requiere "
-#~ "que WooCommerce esté activo."
+#~ "Nudge, Kostenloser Versand-Fortschrittsbalken für WooCommerce erfordert, "
+#~ "dass WooCommerce aktiv ist."
 
 #~ msgid "Nudge: Free Shipping Bar"
-#~ msgstr "Nudge: barra de envío gratuito"
+#~ msgstr "Nudge: Kostenloser Versand"
 
 #~ msgid "Nudge"
 #~ msgstr "Nudge"
@@ -300,13 +301,13 @@ msgstr "Progreso hacia el envío gratuito"
 #~ "much more to add to unlock it. It updates live as the cart changes. The "
 #~ "defaults work out of the box, adjust below only if you want to."
 #~ msgstr ""
-#~ "Nudge muestra a los clientes qué tan cerca están del envío gratuito y "
-#~ "exactamente cuánto más añadir para desbloquearlo. Se actualiza en vivo a "
-#~ "medida que cambia el carrito. Los valores predeterminados funcionan de "
-#~ "inmediato, ajústelos a continuación solo si lo desea."
+#~ "Nudge zeigt Kunden, wie nahe sie dem kostenlosen Versand sind und wie "
+#~ "viel mehr sie noch hinzufügen müssen, um ihn freizuschalten. Es wird live "
+#~ "aktualisiert, wenn sich der Warenkorb ändert. Die Standardeinstellungen "
+#~ "funktionieren sofort. Passe sie unten nur an, wenn du möchtest."
 
 #~ msgid "Enable Nudge"
-#~ msgstr "Habilitar Nudge"
+#~ msgstr "Aktiviere Nudge"
 
 #, php-format
 #~ msgid ""
@@ -314,10 +315,10 @@ msgstr "Progreso hacia el envío gratuito"
 #~ "you want the remaining amount, it is replaced with the value formatted in "
 #~ "your store currency (e.g. $12.00)."
 #~ msgstr ""
-#~ "Lo que dice la barra antes y después de alcanzar la meta. Escriba %s "
-#~ "donde desee el monto restante; se reemplazará con el valor formateado en "
-#~ "la moneda de su tienda (por ejemplo, $12,00)."
+#~ "Was der Balken vor und nach Erreichen des Ziels sagt. Schreibe %s an die "
+#~ "Stelle, an der du den Restbetrag haben möchtest. Er wird durch den in der "
+#~ "Währung deines Shops formatierten Wert ersetzt (z. B. 12,00 $)."
 
 #, php-format
 #~ msgid "od %d zł/rok"
-#~ msgstr "desde %d zł/año"
+#~ msgstr "ab %d zł/Jahr"

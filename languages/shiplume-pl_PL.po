@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nudge - Free Shipping Progress Bar for WooCommerce "
 "0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/instigo\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shiplume\n"
 "POT-Creation-Date: 2026-09-08T13:42:18+00:00\n"
 "PO-Revision-Date: 2026-06-15 10:00+0000\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
@@ -15,21 +15,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
-"X-Domain: instigo\n"
+"X-Domain: shiplume\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
-#: instigo.php
-msgid "Instigo - Free Shipping Bar for WooCommerce"
-msgstr "Instigo - pasek darmowej dostawy dla WooCommerce"
+#: shiplume.php
+msgid "Shiplume - Free Shipping Bar for WooCommerce"
+msgstr "Shiplume - pasek darmowej dostawy dla WooCommerce"
 
 #. Plugin URI of the plugin
-#: instigo.php
+#: shiplume.php
 msgid "https://plogins.com/plogins-nudge/"
 msgstr "https://plogins.com/plogins-nudge/"
 
 #. Description of the plugin
-#: instigo.php
+#: shiplume.php
 msgid ""
 "Show a free-shipping progress bar that nudges shoppers to add more to their "
 "cart."
@@ -38,20 +38,20 @@ msgstr ""
 "większej liczby produktów do koszyka."
 
 #. Author of the plugin
-#: instigo.php
+#: shiplume.php
 msgid "WPPoland.com"
 msgstr "WPPoland.com"
 
 #. Author URI of the plugin
-#: instigo.php
+#: shiplume.php
 msgid "https://wppoland.com"
 msgstr "https://wppoland.com"
 
-#: instigo.php:48
+#: shiplume.php:48
 msgid ""
-"Instigo - Free Shipping Bar for WooCommerce requires WooCommerce to be "
+"Shiplume - Free Shipping Bar for WooCommerce requires WooCommerce to be "
 "active."
-msgstr "Instigo - pasek darmowej dostawy dla WooCommerce wymaga aktywnego WooCommerce."
+msgstr "Shiplume - pasek darmowej dostawy dla WooCommerce wymaga aktywnego WooCommerce."
 
 #: src/Admin/ProUpsell.php:78
 msgid "Wkrótce"
@@ -108,19 +108,19 @@ msgid "What %s adds"
 msgstr "Co dodaje %s"
 
 #: src/Admin/Settings.php:50
-msgid "Instigo: free shipping bar"
-msgstr "Instigo: pasek darmowej dostawy"
+msgid "Shiplume: free shipping bar"
+msgstr "Shiplume: pasek darmowej dostawy"
 
 #: src/Admin/Settings.php:51
-msgid "Instigo"
-msgstr "Instigo"
+msgid "Shiplume"
+msgstr "Shiplume"
 
 #: src/Admin/Settings.php:120
 msgid ""
-"Instigo shows customers how close they are to free shipping and exactly how "
+"Shiplume shows customers how close they are to free shipping and exactly how "
 "much more to add to unlock it. It updates live as the cart changes. The "
 "defaults work out of the box, adjust below only if you want to."
-msgstr "Instigo pokazuje klientom, jak blisko są darmowej dostawy i ile dokładnie muszą dodać, aby ją odblokować. Aktualizuje się na żywo wraz ze zmianami koszyka. Domyślne ustawienia działają od razu, dostosuj poniższe tylko wtedy, gdy chcesz."
+msgstr "Shiplume pokazuje klientom, jak blisko są darmowej dostawy i ile dokładnie muszą dodać, aby ją odblokować. Aktualizuje się na żywo wraz ze zmianami koszyka. Domyślne ustawienia działają od razu, dostosuj poniższe tylko wtedy, gdy chcesz."
 
 #: src/Admin/Settings.php:127
 msgid "General"
@@ -135,8 +135,8 @@ msgstr ""
 "koszyku, jak i kasie pozwala zachować cel przed sobą przez cały okres zakupu."
 
 #: src/Admin/Settings.php:132
-msgid "Enable Instigo"
-msgstr "Włącz Instigo"
+msgid "Enable Shiplume"
+msgstr "Włącz Shiplume"
 
 #: src/Admin/Settings.php:136
 msgid "Show the free-shipping progress bar to shoppers."

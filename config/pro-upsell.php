@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Instigo Pro',
+    'name'       => 'Shiplume Pro',
     'url'        => 'https://plogins.com/plogins-nudge-pro/pricing/',
     'sellable'   => true,
     'price_from' => 19,
@@ -33,12 +33,12 @@ return [
             'pl' => ['title' => 'Nagrody progowe', 'desc' => 'Łańcuch do trzech kamieni milowych wartości koszyka z komunikatami i znacznikami na pasku.'],
         ],
         [
-            'en' => ['title' => 'Conversion analytics', 'desc' => 'Track bar views and threshold hits per placement on WooCommerce > Instigo Analytics.'],
-            'pl' => ['title' => 'Analityka konwersji', 'desc' => 'Zliczaj wyświetlenia paska i osiągnięcia progu per miejsce na WooCommerce > Instigo Analytics.'],
+            'en' => ['title' => 'Conversion analytics', 'desc' => 'Track bar views and threshold hits per placement on WooCommerce > Shiplume Analytics.'],
+            'pl' => ['title' => 'Analityka konwersji', 'desc' => 'Zliczaj wyświetlenia paska i osiągnięcia progu per miejsce na WooCommerce > Shiplume Analytics.'],
         ],
         [
-            'en' => ['title' => 'PRO settings', 'desc' => 'Enable the floating bar, per-zone goals and tiered rewards under WooCommerce > Instigo Pro.'],
-            'pl' => ['title' => 'Ustawienia PRO', 'desc' => 'Włącz pływający pasek, progi per strefa i nagrody progowe w WooCommerce > Instigo Pro.'],
+            'en' => ['title' => 'PRO settings', 'desc' => 'Enable the floating bar, per-zone goals and tiered rewards under WooCommerce > Shiplume Pro.'],
+            'pl' => ['title' => 'Ustawienia PRO', 'desc' => 'Włącz pływający pasek, progi per strefa i nagrody progowe w WooCommerce > Shiplume Pro.'],
         ],
     ],
 ];

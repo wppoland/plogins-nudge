@@ -52,7 +52,7 @@ final class Plugin
 
         /**
          * Fires after the plugin has fully booted and all services are
-         * registered. Add-ons (e.g. Instigo Pro) listen here to extend the shared
+         * registered. Add-ons (e.g. Shiplume Pro) listen here to extend the shared
          * container and register their own hooks.
          *
          * @param Plugin $plugin The booted plugin instance.
