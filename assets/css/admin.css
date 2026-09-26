@@ -77,16 +77,33 @@
 	color: #1d2327;
 }
 
+/* A per-field warning, shown when a ticked box cannot take effect on this
+   store, e.g. the page is built with a block the bar cannot hook into.
+   #4a3608 on #fcf9e8 = 10.9:1 (AA text ✓). */
+.nudge-settings .nudge-warning {
+	margin: 0.6em 0 0;
+	max-width: 42rem;
+	padding: 0.5em 0.75em;
+	border-inline-start: 4px solid #dba617;
+	background: #fcf9e8;
+	color: #4a3608;
+}
+
 /* Keep help text readable and not too wide. */
 .nudge-settings .description {
 	max-width: 42rem;
 }
 
 @media (prefers-color-scheme: dark) {
-	/* wp-admin is not dark by default; guard only the chip so it stays legible
-	   if a dark admin scheme is active. */
+	/* wp-admin is not dark by default; guard only the chip and the warning wash
+	   so they stay legible if a dark admin scheme is active. */
 	.nudge-settings {
 		--nudge-admin-tint: rgba(22, 163, 74, 0.18);
+	}
+
+	.nudge-settings .nudge-warning {
+		background: rgba(219, 166, 23, 0.14);
+		color: inherit;
 	}
 }
 

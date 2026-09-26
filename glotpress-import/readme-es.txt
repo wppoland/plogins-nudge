@@ -57,9 +57,9 @@ El código fuente y los informes de errores están en GitHub: https://github.com
 
 == Installation ==
 
-1. Sube el plugin a `/wp-content/plugins/nudge` o instálalo desde Plugins → Añadir nuevo.
+1. Sube el plugin a `/wp-content/plugins/nudge` o instálalo desde Plugins > Añadir nuevo.
 2. Actívalo. WooCommerce debe estar activo.
-3. Ve a <strong>WooCommerce → Nudge</strong>, activa la barra y elige dónde se muestra.
+3. Ve a <strong>WooCommerce > Nudge</strong>, activa la barra y elige dónde se muestra.
 
 == Frequently Asked Questions ==
 
@@ -129,4 +129,4 @@ Plogins Nudge incluye traducciones al polaco, al alemán y al español para la i
 * Filtro `nudge/threshold` y `ThresholdResolver::zoneThreshold()` para objetivos PRO por zona.
 
 = 0.1.0 =
-* Primer lanzamiento: barra de progreso de envío gratis para el carrito y el pago, con umbral automático o manual, actualizaciones en directo a medida que cambia el carrito, mensajes editables, soporte de modo oscuro y movimiento reducido, y una pantalla de ajustes en WooCommerce → Nudge.
+* Primer lanzamiento: barra de progreso de envío gratis para el carrito y el pago, con umbral automático o manual, actualizaciones en directo a medida que cambia el carrito, mensajes editables, soporte de modo oscuro y movimiento reducido, y una pantalla de ajustes en WooCommerce > Nudge.

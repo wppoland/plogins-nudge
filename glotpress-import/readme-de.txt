@@ -57,9 +57,9 @@ Quellcode und Fehlerberichte liegen auf GitHub: https://github.com/wppoland/plog
 
 == Installation ==
 
-1. Lade das Plugin nach `/wp-content/plugins/nudge` hoch oder installiere es über Plugins → Installieren.
+1. Lade das Plugin nach `/wp-content/plugins/nudge` hoch oder installiere es über Plugins > Installieren.
 2. Aktiviere es. WooCommerce muss aktiv sein.
-3. Gehe zu <strong>WooCommerce → Nudge</strong>, aktiviere den Balken und wähle, wo er angezeigt wird.
+3. Gehe zu <strong>WooCommerce > Nudge</strong>, aktiviere den Balken und wähle, wo er angezeigt wird.
 
 == Frequently Asked Questions ==
 
@@ -129,4 +129,4 @@ Plogins Nudge enthält polnische, deutsche und spanische Übersetzungen für die
 * Filter `nudge/threshold` und `ThresholdResolver::zoneThreshold()` für PRO-Ziele pro Zone.
 
 = 0.1.0 =
-* Erste Veröffentlichung: Fortschrittsbalken für kostenlosen Versand für Warenkorb und Kasse, mit automatischem oder manuellem Schwellenwert, Live-Updates bei Warenkorbänderungen, bearbeitbaren Nachrichten, Dark-Mode- und Reduced-Motion-Unterstützung sowie einem Einstellungsbildschirm unter WooCommerce → Nudge.
+* Erste Veröffentlichung: Fortschrittsbalken für kostenlosen Versand für Warenkorb und Kasse, mit automatischem oder manuellem Schwellenwert, Live-Updates bei Warenkorbänderungen, bearbeitbaren Nachrichten, Dark-Mode- und Reduced-Motion-Unterstützung sowie einem Einstellungsbildschirm unter WooCommerce > Nudge.

@@ -32,6 +32,12 @@ return [
     'show_on_checkout' => true,
 
     // Messages. {amount} is replaced with the formatted remaining amount.
-    'message_progress' => 'Add {amount} more to get free shipping!',
-    'message_success'  => 'You have unlocked free shipping!',
+    //
+    // Both are empty on purpose. An English sentence here can never be
+    // translated: a config array is not a gettext call, so it never reaches the
+    // .pot and the packaged text survived even a complete language pack. Empty
+    // means "use Nudge\Service\Texts", which is translated; anything a merchant
+    // types still wins.
+    'message_progress' => '',
+    'message_success'  => '',
 ];
