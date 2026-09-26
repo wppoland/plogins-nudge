@@ -57,9 +57,9 @@ Kod źródłowy i zgłoszenia błędów znajdziesz na GitHubie: https://github.c
 
 == Installation ==
 
-1. Prześlij wtyczkę do `/wp-content/plugins/nudge` lub zainstaluj przez Wtyczki → Dodaj nową.
+1. Prześlij wtyczkę do `/wp-content/plugins/nudge` lub zainstaluj przez Wtyczki > Dodaj nową.
 2. Włącz ją. WooCommerce musi być aktywne.
-3. Przejdź do <strong>WooCommerce → Nudge</strong>, włącz pasek i wybierz, gdzie ma się wyświetlać.
+3. Przejdź do <strong>WooCommerce > Nudge</strong>, włącz pasek i wybierz, gdzie ma się wyświetlać.
 
 == Frequently Asked Questions ==
 
@@ -129,4 +129,4 @@ Plogins Nudge zawiera polskie, niemieckie i hiszpańskie tłumaczenie interfejsu
 * Filtr `nudge/threshold` i `ThresholdResolver::zoneThreshold()` na potrzeby celów PRO dla stref.
 
 = 0.1.0 =
-* Pierwsze wydanie: pasek postępu darmowej wysyłki dla koszyka i kasy, z automatycznym lub ręcznym progiem, aktualizacjami na żywo wraz ze zmianami koszyka, edytowalnymi komunikatami, obsługą trybu ciemnego i ograniczonego ruchu oraz ekranem ustawień w WooCommerce → Nudge.
+* Pierwsze wydanie: pasek postępu darmowej wysyłki dla koszyka i kasy, z automatycznym lub ręcznym progiem, aktualizacjami na żywo wraz ze zmianami koszyka, edytowalnymi komunikatami, obsługą trybu ciemnego i ograniczonego ruchu oraz ekranem ustawień w WooCommerce > Nudge.

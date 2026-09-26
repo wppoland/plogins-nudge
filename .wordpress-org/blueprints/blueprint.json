@@ -1,7 +1,7 @@
 {
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
-    "title": "Plogins Nudge - Free Shipping Bar for WooCommerce, Live Preview",
+    "title": "Shiplume - Free Shipping Bar for WooCommerce, Live Preview",
     "author": "WPPoland"
   },
   "landingPage": "/wp-admin/admin.php?page=nudge-settings",
