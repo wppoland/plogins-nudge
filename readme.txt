@@ -1,11 +1,11 @@
-=== Shiplume - Free Shipping Bar for WooCommerce ===
+=== Shiplume - Shipping Progress Bar for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, free shipping, cart, progress bar, conversions
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,6 +112,9 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.5 =
+* Display name is now Shiplume - Shipping Progress Bar for WooCommerce. The slug, settings and hooks are unchanged.
 
 = 1.1.4 =
 * The bar markup is escaped with wp_kses_post() where it is printed, instead of relying on the template alone.
