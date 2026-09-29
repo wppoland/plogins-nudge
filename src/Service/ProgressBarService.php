@@ -112,7 +112,7 @@ final class ProgressBarService implements HasHooks
      */
     public function renderCartBar(): void
     {
-        echo $this->buildBar('cart'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- buildBar() returns fully-escaped, self-rendered template markup.
+        echo wp_kses_post($this->buildBar('cart'));
     }
 
     /**
@@ -120,7 +120,7 @@ final class ProgressBarService implements HasHooks
      */
     public function renderCheckoutBar(): void
     {
-        echo $this->buildBar('checkout'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- buildBar() returns fully-escaped, self-rendered template markup.
+        echo wp_kses_post($this->buildBar('checkout'));
     }
 
     /**
@@ -128,7 +128,7 @@ final class ProgressBarService implements HasHooks
      */
     public function renderInlineBar(): void
     {
-        echo $this->buildBar('inline'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- buildBar() returns fully-escaped, self-rendered template markup.
+        echo wp_kses_post($this->buildBar('inline'));
     }
 
     /**
