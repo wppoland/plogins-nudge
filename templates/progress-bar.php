@@ -15,7 +15,7 @@
  *
  * @package Nudge
  *
- * @var string $context  Render context: cart|checkout|inline.
+ * @var string $context  Render context: cart|checkout.
  * @var int    $percent  Progress towards the goal, 0-100.
  * @var bool   $reached  Whether the free-shipping goal is met.
  * @var string $message  Pre-built message HTML (may contain wc_price markup).

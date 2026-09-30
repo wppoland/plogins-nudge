@@ -50,19 +50,23 @@ final class ProgressBarService implements HasHooks
 
         add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
 
+        // One bar per page. There used to be a second, "inline" bar hooked
+        // inside the totals table on both pages, so every shopper saw the bar
+        // twice. Inside a <tfoot> the browser also hoists the <div> out of the
+        // table, so each checkout refresh left one more copy behind.
+        //
+        // Classic template hooks only: the Cart and Checkout blocks fire none of
+        // them, and the settings screen warns when a page uses the block.
         if (! empty($settings['show_on_cart'])) {
-            // Both of these live in the classic cart templates: above the totals
-            // and inside them. The Cart block fires neither, so on a block cart
-            // the merchant ticked the box and the shopper saw nothing at all.
-            // The settings screen now warns when the page uses the block.
+            // Inside div.cart_totals, which WooCommerce re-renders on update.
             add_action('woocommerce_before_cart_totals', [$this, 'renderCartBar']);
-            add_action('woocommerce_cart_totals_after_order_total', [$this, 'renderInlineBar']);
         }
 
         if (! empty($settings['show_on_checkout'])) {
-            // Same story on checkout: classic template hooks only.
             add_action('woocommerce_before_checkout_form', [$this, 'renderCheckoutBar'], 5);
-            add_action('woocommerce_review_order_after_order_total', [$this, 'renderInlineBar']);
+            // The checkout form is not re-rendered on update, so send the bar
+            // as a fragment to keep it current when a coupon changes the total.
+            add_filter('woocommerce_update_order_review_fragments', [$this, 'checkoutFragment']);
         }
     }
 
@@ -124,11 +128,14 @@ final class ProgressBarService implements HasHooks
     }
 
     /**
-     * Render wrapper for inline (inside-totals) placements.
+     * @param array<string, string> $fragments
+     * @return array<string, string>
      */
-    public function renderInlineBar(): void
+    public function checkoutFragment(array $fragments): array
     {
-        echo wp_kses_post($this->buildBar('inline'));
+        $fragments['div.nudge--checkout'] = wp_kses_post($this->buildBar('checkout'));
+
+        return $fragments;
     }
 
     /**
@@ -194,9 +201,9 @@ final class ProgressBarService implements HasHooks
     }
 
     /**
-     * @param array<string, mixed> $context
+     * @param array<string, mixed> $vars
      */
-    private function renderTemplate(string $template, array $context): void
+    private function renderTemplate(string $template, array $vars): void
     {
         $file = NUDGE_DIR . 'templates/' . $template . '.php';
 
@@ -204,7 +211,9 @@ final class ProgressBarService implements HasHooks
             return;
         }
 
-        extract($context, EXTR_SKIP);
+        // Not named $context: EXTR_SKIP kept the array under that name, so the
+        // template printed "nudge--Array" and data-nudge-placement="Array".
+        extract($vars, EXTR_SKIP);
         require $file;
     }
 

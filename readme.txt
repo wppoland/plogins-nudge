@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,8 +100,9 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 == Screenshots ==
 
-1. The free-shipping progress bar on the cart.
-2. The Shiplume settings screen.
+1. The cart with one progress bar above the totals, showing how much more to add for free shipping.
+2. The Shiplume settings screen: where the bar shows, the free-shipping threshold and the messages, with the PRO features listed alongside.
+3. The same bar at the top of the checkout.
 
 == External Services ==
 
@@ -112,6 +113,10 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.6 =
+* Fixed: the bar showed twice on the classic cart and checkout, once above the totals and once inside them. On checkout a copy was added on every refresh. There is now one bar per page, and the checkout bar still updates when a coupon changes the total.
+* Fixed: the bar's placement class and data attribute printed "Array" instead of cart or checkout.
 
 = 1.1.5 =
 * Display name is now Shiplume - Shipping Progress Bar for WooCommerce. The slug, settings and hooks are unchanged.
