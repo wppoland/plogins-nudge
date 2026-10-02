@@ -22,12 +22,24 @@ defined('ABSPATH') || exit;
 final class ThresholdResolver
 {
     /**
+     * Whether the free-shipping method behind the last resolved threshold has
+     * "Apply minimum order rule before coupon discount" ticked. WooCommerce then
+     * compares the cart before discounts, so cartTotal() must too.
+     *
+     * ponytail: state between threshold() and cartTotal(); both are always
+     * called together per render. Return a value object if a caller ever needs them apart.
+     */
+    private bool $ignoreDiscounts = false;
+
+    /**
      * Compute the active free-shipping threshold for the given settings.
      *
      * @param array<string, mixed> $settings
      */
     public function threshold(array $settings): float
     {
+        $this->ignoreDiscounts = false;
+
         $source = ($settings['threshold_source'] ?? 'auto') === 'manual' ? 'manual' : 'auto';
         $manual = max(0.0, (float) ($settings['manual_threshold'] ?? 0.0));
 
@@ -60,20 +72,7 @@ final class ThresholdResolver
             return 0.0;
         }
 
-        $candidates = [];
-
-        foreach ($zone->get_shipping_methods(true) as $method) {
-            $amount = $this->methodMinAmount($method);
-            if ($amount > 0.0) {
-                $candidates[] = $amount;
-            }
-        }
-
-        if ($candidates === []) {
-            return 0.0;
-        }
-
-        return (float) min($candidates);
+        return $this->lowestMinimum($zone->get_shipping_methods(true));
     }
 
     /**
@@ -86,35 +85,42 @@ final class ThresholdResolver
             return 0.0;
         }
 
-        $candidates = [];
+        $best = 0.0;
 
         // Configured zones.
         foreach (\WC_Shipping_Zones::get_zones() as $zone) {
-            $methods = $zone['shipping_methods'] ?? [];
-            foreach ((array) $methods as $method) {
-                $amount = $this->methodMinAmount($method);
-                if ($amount > 0.0) {
-                    $candidates[] = $amount;
-                }
-            }
+            $best = $this->lowestMinimum((array) ($zone['shipping_methods'] ?? []), $best);
         }
 
         // "Rest of the world" zone (id 0).
         $rest = \WC_Shipping_Zones::get_zone_by('zone_id', 0);
         if ($rest instanceof \WC_Shipping_Zone) {
-            foreach ($rest->get_shipping_methods(true) as $method) {
-                $amount = $this->methodMinAmount($method);
-                if ($amount > 0.0) {
-                    $candidates[] = $amount;
-                }
+            $best = $this->lowestMinimum($rest->get_shipping_methods(true), $best);
+        }
+
+        return $best;
+    }
+
+    /**
+     * The lowest usable minimum among $methods, starting from $best (0.0 means
+     * none yet). Remembers whether the winning method ignores discounts.
+     *
+     * @param iterable<mixed> $methods
+     */
+    private function lowestMinimum(iterable $methods, float $best = 0.0): float
+    {
+        foreach ($methods as $method) {
+            $amount = $this->methodMinAmount($method);
+
+            if ($amount > 0.0 && ($best === 0.0 || $amount < $best)) {
+                $best = $amount;
+                // methodMinAmount() only returns > 0 for a WC_Shipping_Method.
+                $this->ignoreDiscounts = $method instanceof \WC_Shipping_Method
+                    && 'yes' === $method->get_option('ignore_discounts');
             }
         }
 
-        if ($candidates === []) {
-            return 0.0;
-        }
-
-        return (float) min($candidates);
+        return $best;
     }
 
     /**
@@ -172,7 +178,9 @@ final class ThresholdResolver
             $total = round($total - (float) $cart->get_discount_tax(), wc_get_price_decimals());
         }
 
-        $total = round($total - (float) $cart->get_discount_total(), wc_get_price_decimals());
+        if (! $this->ignoreDiscounts) {
+            $total = round($total - (float) $cart->get_discount_total(), wc_get_price_decimals());
+        }
 
         return max(0.0, $total);
     }
