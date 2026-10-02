@@ -116,7 +116,7 @@ final class ProgressBarService implements HasHooks
      */
     public function renderCartBar(): void
     {
-        echo wp_kses_post($this->buildBar('cart'));
+        echo $this->kses($this->buildBar('cart')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- filtered by kses().
     }
 
     /**
@@ -124,7 +124,26 @@ final class ProgressBarService implements HasHooks
      */
     public function renderCheckoutBar(): void
     {
-        echo wp_kses_post($this->buildBar('checkout'));
+        echo $this->kses($this->buildBar('checkout')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- filtered by kses().
+    }
+
+    /**
+     * wp_kses_post() with the progressbar's ARIA attributes. The post allow-list
+     * drops aria-valuenow/min/max and aria-atomic, so the bar reached screen
+     * readers as a progressbar with no value.
+     */
+    private function kses(string $html): string
+    {
+        $allowed = wp_kses_allowed_html('post');
+
+        $allowed['div'] = array_merge($allowed['div'] ?? [], [
+            'aria-valuemin' => true,
+            'aria-valuemax' => true,
+            'aria-valuenow' => true,
+        ]);
+        $allowed['p'] = array_merge($allowed['p'] ?? [], ['aria-atomic' => true]);
+
+        return wp_kses($html, $allowed);
     }
 
     /**
@@ -133,7 +152,7 @@ final class ProgressBarService implements HasHooks
      */
     public function checkoutFragment(array $fragments): array
     {
-        $fragments['div.nudge--checkout'] = wp_kses_post($this->buildBar('checkout'));
+        $fragments['div.nudge--checkout'] = $this->kses($this->buildBar('checkout'));
 
         return $fragments;
     }

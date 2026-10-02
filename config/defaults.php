@@ -24,8 +24,10 @@ return [
     'threshold_source' => 'auto',
 
     // Manual free-shipping threshold (used when source is 'manual', or as the
-    // fallback when 'auto' finds no configured free-shipping method).
-    'manual_threshold' => 50.0,
+    // fallback when 'auto' finds no configured free-shipping method). 0 until
+    // the merchant types one: a non-zero default promised shoppers free
+    // shipping on stores that offer none.
+    'manual_threshold' => 0.0,
 
     // Where the bar renders.
     'show_on_cart'     => true,
