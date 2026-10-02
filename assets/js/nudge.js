@@ -8,8 +8,8 @@
  * is polish: after each update it nudges the fill from its previous width to the
  * new one so the change animates smoothly instead of snapping.
  *
- * No jQuery dependency of our own, we listen on the native event target. (WC
- * triggers these via jQuery, which dispatches to addEventListener too.) Honours
+ * No jQuery dependency of our own: it uses the jQuery WooCommerce already
+ * loaded, because jQuery-triggered events do not reach native listeners. Honours
  * prefers-reduced-motion by skipping the re-animation entirely.
  */
 ( function () {
@@ -67,7 +67,15 @@
 		animateBars();
 	}
 
-	document.body.addEventListener( 'updated_cart_totals', onUpdate );
-	document.body.addEventListener( 'updated_checkout', onUpdate );
-	document.body.addEventListener( 'updated_shipping_method', onUpdate );
+	// WooCommerce fires these through jQuery's trigger(), which never reaches a
+	// native addEventListener for custom events, so bind through jQuery when
+	// it is there (WooCommerce's cart and checkout scripts load it).
+	var events = [ 'updated_cart_totals', 'updated_checkout', 'updated_shipping_method' ];
+	if ( window.jQuery ) {
+		window.jQuery( document.body ).on( events.join( ' ' ), onUpdate );
+	} else {
+		events.forEach( function ( name ) {
+			document.body.addEventListener( name, onUpdate );
+		} );
+	}
 } )();
