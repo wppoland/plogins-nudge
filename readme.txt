@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -113,6 +113,12 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.7 =
+* Fixed: a store with no free-shipping method no longer shows "Add X more to get free shipping!". The manual amount defaulted to 50, so Automatic mode fell back to a goal WooCommerce never honours. The manual amount now starts at 0; a store that saved its settings keeps the amount it saved.
+* Fixed: when the free-shipping method has "Apply minimum order rule before coupon discount" ticked, progress is measured before coupons, as WooCommerce does. The bar used to ask for more while WooCommerce already offered free shipping.
+* Fixed: the progress bar reaches screen readers with its value. aria-valuenow, aria-valuemin and aria-valuemax were stripped from the output.
+* Fixed: the bar animates again after the cart or checkout updates. The script listened natively for events WooCommerce fires through jQuery, which never reached it.
 
 = 1.1.6 =
 * Fixed: the bar showed twice on the classic cart and checkout, once above the totals and once inside them. On checkout a copy was added on every refresh. There is now one bar per page, and the checkout bar still updates when a coupon changes the total.
