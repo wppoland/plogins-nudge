@@ -32,6 +32,8 @@ return [
     // Where the bar renders.
     'show_on_cart'     => true,
     'show_on_checkout' => true,
+    // Off by default: the classic mini-cart widget is a new placement.
+    'show_in_mini_cart' => false,
 
     // Messages. {amount} is replaced with the formatted remaining amount.
     //

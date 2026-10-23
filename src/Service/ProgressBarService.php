@@ -9,16 +9,20 @@ defined('ABSPATH') || exit;
 use Nudge\Contract\HasHooks;
 
 /**
- * Renders the free-shipping progress bar on the cart and checkout.
+ * Renders the free-shipping progress bar.
  *
- * The bar is computed server-side and re-rendered by WooCommerce whenever the
- * cart totals update (it lives inside the cart/checkout totals fragment). A
- * tiny, dependency-free script listens for WooCommerce's `updated_cart_totals`
- * and `updated_checkout` events to animate the width smoothly between renders.
+ * Placements: the classic cart and checkout templates, the Cart and Checkout
+ * blocks, the classic mini-cart widget and the [shiplume] shortcode. Every
+ * placement draws the same server-built bar from barContext(), so the goal,
+ * the coupon rule and the messages never differ between them.
  *
- * Renders on the classic cart and checkout templates. The Cart and Checkout
- * Blocks fire none of these hooks, so a store built on the blocks gets no bar,
- * and the settings screen says so next to the placement checkboxes.
+ * Classic pages: the bar lives inside markup WooCommerce re-renders (cart
+ * totals, checkout fragments, mini-cart fragments), and a tiny script animates
+ * the width between renders.
+ *
+ * Blocks: the blocks are React apps that replace their own inner markup, so the
+ * bar is printed just before the block wrapper and kept current from the Store
+ * API cart response, which carries the bar under extensions.shiplume.
  *
  * Robustness: when the feature is disabled, the cart is empty, or no
  * free-shipping threshold is configured, the bar is hidden rather than rendered
@@ -40,8 +44,21 @@ final class ProgressBarService implements HasHooks
         $this->resolver = $resolver;
     }
 
+    /** Store API extension namespace: extensions.shiplume in the cart response. */
+    public const STORE_NAMESPACE = 'shiplume';
+
+    /** Block name => bar context, for the Cart and Checkout blocks. */
+    private const BLOCKS = [
+        'woocommerce/cart'     => 'cart',
+        'woocommerce/checkout' => 'checkout',
+    ];
+
     public function registerHooks(): void
     {
+        // Registered even when the bar is off, so a disabled bar prints nothing
+        // instead of a literal "[shiplume]" in the page.
+        add_shortcode('shiplume', [$this, 'shortcode']);
+
         $settings = $this->settings();
 
         if (empty($settings['enabled'])) {
@@ -54,9 +71,6 @@ final class ProgressBarService implements HasHooks
         // inside the totals table on both pages, so every shopper saw the bar
         // twice. Inside a <tfoot> the browser also hoists the <div> out of the
         // table, so each checkout refresh left one more copy behind.
-        //
-        // Classic template hooks only: the Cart and Checkout blocks fire none of
-        // them, and the settings screen warns when a page uses the block.
         if (! empty($settings['show_on_cart'])) {
             // Inside div.cart_totals, which WooCommerce re-renders on update.
             add_action('woocommerce_before_cart_totals', [$this, 'renderCartBar']);
@@ -68,6 +82,23 @@ final class ProgressBarService implements HasHooks
             // as a fragment to keep it current when a coupon changes the total.
             add_filter('woocommerce_update_order_review_fragments', [$this, 'checkoutFragment']);
         }
+
+        if (! empty($settings['show_on_cart']) || ! empty($settings['show_on_checkout'])) {
+            add_filter('render_block', [$this, 'renderBlock'], 10, 2);
+            $this->registerStoreApiData();
+        }
+
+        if (! empty($settings['show_in_mini_cart'])) {
+            // Inside div.widget_shopping_cart_content, a cart fragment, so the
+            // bar is rebuilt whenever WooCommerce refreshes the mini-cart.
+            add_action('woocommerce_widget_shopping_cart_before_buttons', [$this, 'renderMiniCartBar']);
+            // The widget is usually filled by an AJAX fragment after page load,
+            // when it is too late to enqueue the stylesheet.
+            add_action('wp_enqueue_scripts', [$this, 'enqueueStyle'], 20);
+        }
+
+        // Keeps [shiplume] bars current after an AJAX add to cart.
+        add_filter('woocommerce_add_to_cart_fragments', [$this, 'shortcodeFragment']);
     }
 
     /**
@@ -91,6 +122,19 @@ final class ProgressBarService implements HasHooks
             \Nudge\VERSION,
             ['in_footer' => true, 'strategy' => 'defer'],
         );
+
+        wp_register_script(
+            self::ASSET_HANDLE . '-blocks',
+            NUDGE_URL . 'assets/js/nudge-blocks.js',
+            ['wp-data'],
+            \Nudge\VERSION,
+            ['in_footer' => true],
+        );
+    }
+
+    public function enqueueStyle(): void
+    {
+        wp_enqueue_style(self::ASSET_HANDLE);
     }
 
     private function enqueueAssets(): void
@@ -128,6 +172,128 @@ final class ProgressBarService implements HasHooks
     }
 
     /**
+     * Render wrapper for the classic mini-cart widget, above its buttons.
+     */
+    public function renderMiniCartBar(): void
+    {
+        echo $this->kses($this->buildBar('mini-cart')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- filtered by kses().
+    }
+
+    /**
+     * [shiplume] prints the bar for the current cart, or nothing when the bar
+     * is off or there is no goal to show.
+     */
+    public function shortcode(): string
+    {
+        if (empty($this->settings()['enabled'])) {
+            return '';
+        }
+
+        // Enqueued even for an empty bar: an add-to-cart fragment may fill the
+        // slot later, and it needs the stylesheet already on the page.
+        $this->enqueueAssets();
+
+        return $this->slot('shortcode');
+    }
+
+    /**
+     * @param array<string, string> $fragments
+     * @return array<string, string>
+     */
+    public function shortcodeFragment(array $fragments): array
+    {
+        $fragments['div.nudge-slot--shortcode'] = $this->slot('shortcode', false);
+
+        return $fragments;
+    }
+
+    /**
+     * Print the bar before the Cart or Checkout block wrapper. Inside the
+     * wrapper React would replace it on the first render.
+     *
+     * @param array<string, mixed> $block
+     */
+    public function renderBlock(string $content, array $block): string
+    {
+        $context = self::BLOCKS[(string) ($block['blockName'] ?? '')] ?? '';
+
+        if ('' === $context || empty($this->settings()['show_on_' . $context])) {
+            return $content;
+        }
+
+        // The slot is printed even for an empty cart, so the script has a place
+        // to draw the bar once the shopper adds something.
+        $this->enqueueAssets();
+        wp_enqueue_script(self::ASSET_HANDLE . '-blocks');
+
+        return $this->slot($context) . $content;
+    }
+
+    /**
+     * Bar data for the Cart and Checkout blocks, sent with every Store API
+     * cart response so the block script can redraw the bar after a change.
+     */
+    private function registerStoreApiData(): void
+    {
+        if (! function_exists('woocommerce_store_api_register_endpoint_data')) {
+            return;
+        }
+
+        woocommerce_store_api_register_endpoint_data([
+            'endpoint'        => 'cart',
+            'namespace'       => self::STORE_NAMESPACE,
+            'data_callback'   => [$this, 'storeApiData'],
+            'schema_callback' => [$this, 'storeApiSchema'],
+            'schema_type'     => ARRAY_A,
+        ]);
+    }
+
+    /**
+     * The rendered bar per block placement, empty where nothing should show.
+     *
+     * @return array<string, string>
+     */
+    public function storeApiData(): array
+    {
+        $settings = $this->settings();
+        $data     = [];
+
+        foreach (self::BLOCKS as $context) {
+            $data[$context] = empty($settings['show_on_' . $context]) ? '' : $this->kses($this->buildBar($context, false));
+        }
+
+        return $data;
+    }
+
+    /** @return array<string, array<string, mixed>> */
+    public function storeApiSchema(): array
+    {
+        $schema = [];
+
+        foreach (self::BLOCKS as $context) {
+            $schema[$context] = [
+                'description' => __('Free-shipping progress bar markup for this placement, empty when hidden.', 'shiplume'),
+                'type'        => 'string',
+                'context'     => ['view', 'edit'],
+                'readonly'    => true,
+            ];
+        }
+
+        return $schema;
+    }
+
+    /**
+     * A wrapper that always prints, so a script or a cart fragment can fill it
+     * later even when the bar is empty right now.
+     */
+    private function slot(string $context, bool $enqueue = true): string
+    {
+        return '<div class="nudge-slot nudge-slot--' . esc_attr($context) . '" data-nudge-slot="' . esc_attr($context) . '">'
+            . $this->kses($this->buildBar($context, $enqueue))
+            . '</div>';
+    }
+
+    /**
      * wp_kses_post() with the progressbar's ARIA attributes. The post allow-list
      * drops aria-valuenow/min/max and aria-atomic, so the bar reached screen
      * readers as a progressbar with no value.
@@ -161,7 +327,7 @@ final class ProgressBarService implements HasHooks
      * Build the bar markup for a given context, or an empty string when there
      * is nothing meaningful to show.
      */
-    private function buildBar(string $context): string
+    private function buildBar(string $context, bool $enqueue = true): string
     {
         // Cart must be available and not empty.
         if (! function_exists('WC') || ! WC()->cart instanceof \WC_Cart || WC()->cart->is_empty()) {
@@ -192,7 +358,9 @@ final class ProgressBarService implements HasHooks
             ? ($settings['message_success'] ?? '')
             : ($settings['message_progress'] ?? '')));
 
-        $this->enqueueAssets();
+        if ($enqueue) {
+            $this->enqueueAssets();
+        }
 
         /** @var array{context:string,percent:int,reached:bool,message:string,threshold:float,total:float,remaining:float,tier_markers?:int[]} $barContext */
         $barContext = apply_filters('nudge/bar_context', [
