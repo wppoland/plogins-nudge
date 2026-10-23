@@ -143,22 +143,29 @@ final class Settings implements HasHooks
                             $this->checkboxRow(
                                 'show_on_cart',
                                 __('Cart page', 'shiplume'),
-                                __('Show the bar on the cart page, above the totals.', 'shiplume'),
+                                __('Show the bar on the cart page: above the totals on the classic cart, above the Cart block on a block cart.', 'shiplume'),
                                 $settings,
-                                $this->usesBlock('cart', 'woocommerce/cart')
-                                    ? __('Your cart page is built with the Cart block, which the bar cannot hook into. Ticking this box will not show it to shoppers. Switch the page to the [woocommerce_cart] shortcode to use the bar there.', 'shiplume')
-                                    : '',
                             );
                             $this->checkboxRow(
                                 'show_on_checkout',
                                 __('Checkout page', 'shiplume'),
                                 __('Show the bar on checkout, so the goal stays visible while they pay.', 'shiplume'),
                                 $settings,
-                                $this->usesBlock('checkout', 'woocommerce/checkout')
-                                    ? __('Your checkout page is built with the Checkout block, which the bar cannot hook into. Ticking this box will not show it to shoppers. Switch the page to the [woocommerce_checkout] shortcode to use the bar there.', 'shiplume')
-                                    : '',
+                            );
+                            $this->checkboxRow(
+                                'show_in_mini_cart',
+                                __('Mini-cart widget', 'shiplume'),
+                                __('Show the bar in the classic mini-cart widget, above its buttons.', 'shiplume'),
+                                $settings,
                             );
                             ?>
+                            <tr>
+                                <th scope="row"><?php esc_html_e('Shortcode', 'shiplume'); ?></th>
+                                <td>
+                                    <code>[shiplume]</code>
+                                    <p class="description"><?php esc_html_e('Place the same bar anywhere else, for example in a header or on a product page. It shows the cart as it is when the page loads and updates after an add to cart.', 'shiplume'); ?></p>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </section>
@@ -262,11 +269,11 @@ final class Settings implements HasHooks
     }
 
     /**
-     * Render a single checkbox row, with an optional warning under it.
+     * Render a single checkbox row.
      *
      * @param array<string, mixed> $settings
      */
-    private function checkboxRow(string $key, string $label, string $help, array $settings, string $warning = ''): void
+    private function checkboxRow(string $key, string $label, string $help, array $settings): void
     {
         $id = 'nudge_' . $key;
         ?>
@@ -277,36 +284,9 @@ final class Settings implements HasHooks
                     <input type="checkbox" id="<?php echo esc_attr($id); ?>" name="<?php echo esc_attr(self::OPTION); ?>[<?php echo esc_attr($key); ?>]" value="1" <?php checked((bool) ($settings[$key] ?? false), true); ?> />
                     <?php echo esc_html($help); ?>
                 </label>
-                <?php if ('' !== $warning) : ?>
-                    <p class="nudge-warning"><?php echo esc_html($warning); ?></p>
-                <?php endif; ?>
             </td>
         </tr>
         <?php
-    }
-
-    /**
-     * Whether a WooCommerce page is built with a block rather than the classic
-     * shortcode.
-     *
-     * The bar renders from classic cart/checkout template hooks, and the Cart
-     * and Checkout blocks fire none of them. Both boxes ship ticked, so on a
-     * block-based store the merchant saw the placement enabled and the shopper
-     * saw no bar at all, with nothing on screen to explain it.
-     */
-    private function usesBlock(string $page, string $block): bool
-    {
-        if (! function_exists('wc_get_page_id')) {
-            return false;
-        }
-
-        $pageId = wc_get_page_id($page);
-
-        if ($pageId <= 0) {
-            return false;
-        }
-
-        return has_block($block, $pageId);
     }
 
     /**
@@ -330,6 +310,7 @@ final class Settings implements HasHooks
             'enabled'          => ! empty($raw['enabled']),
             'show_on_cart'     => ! empty($raw['show_on_cart']),
             'show_on_checkout' => ! empty($raw['show_on_checkout']),
+            'show_in_mini_cart' => ! empty($raw['show_in_mini_cart']),
 
             'threshold_source' => $source,
             'manual_threshold' => max(0.0, (float) wc_format_decimal((string) ($raw['manual_threshold'] ?? '0'))),

@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.7
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,9 +40,13 @@ always-finished bar.
 
 * Reads the free-shipping threshold automatically from your active WooCommerce
   free-shipping methods, or takes a fixed amount you set by hand.
-* Re-renders with the cart on the classic Cart and Checkout pages (the ones
-  built with the `[woocommerce_cart]` and `[woocommerce_checkout]` shortcodes).
-  A small script (no jQuery of its own) animates the width between updates.
+* Shows on the Cart and Checkout pages, whether they use the classic
+  `[woocommerce_cart]` and `[woocommerce_checkout]` shortcodes or the Cart and
+  Checkout blocks. On the blocks the bar sits above the block and updates after
+  a quantity change, coupon or removal without a page reload.
+* Can also show in the classic mini-cart widget, above its buttons (off by
+  default), and anywhere you place the `[shiplume]` shortcode.
+* A small script (no jQuery of its own) animates the width between updates.
 * Exposes a real `role="progressbar"` with `aria-valuenow`/`min`/`max` and a
   readable text message for screen readers; honours `prefers-reduced-motion`.
 * Reserves the bar's height before paint, so adding it doesn't shift the layout.
@@ -81,11 +85,19 @@ entirely until there's a real threshold to count down to.
 
 = Does it work with the Cart and Checkout blocks? =
 
-Not yet. The bar renders on the classic Cart and Checkout pages, the ones built
-with the `[woocommerce_cart]` and `[woocommerce_checkout]` shortcodes. It is
-safe alongside the blocks and declares Cart/Checkout Blocks compatibility, but
-it draws nothing inside them. If your pages use the blocks, the Shiplume settings
-screen tells you so next to the placement checkboxes.
+Yes. On a page built with the Cart or Checkout block the bar shows above the
+block. It reads the same goal and messages as the classic pages and updates when
+the shopper changes a quantity, applies a coupon or removes an item, without a
+page reload. The Cart page and Checkout page checkboxes control both kinds of
+page.
+
+= Can I show the bar somewhere else? =
+
+Yes. Tick "Mini-cart widget" to show it in the classic mini-cart widget, above
+its buttons; it refreshes with the widget. The `[shiplume]` shortcode prints the
+same bar anywhere a shortcode works. It shows the cart as it is when the page
+loads and updates after an add to cart. The Mini-cart block used by block themes
+is not covered.
 
 = Can I change the wording and colours? =
 
@@ -113,6 +125,11 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.0 =
+* New: the bar shows on the Cart and Checkout blocks, above the block, and updates after a quantity change, coupon or removal without a reload. It used to draw nothing on a block cart or checkout.
+* New: "Mini-cart widget" setting shows the bar in the classic mini-cart widget, above its buttons. Off by default.
+* New: the `[shiplume]` shortcode prints the bar anywhere a shortcode works and updates after an add to cart.
 
 = 1.1.7 =
 * Fixed: a store with no free-shipping method no longer shows "Add X more to get free shipping!". The manual amount defaulted to 50, so Automatic mode fell back to a goal WooCommerce never honours. The manual amount now starts at 0; a store that saved its settings keeps the amount it saved.
