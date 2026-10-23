@@ -9,7 +9,7 @@ Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A free-shipping progress bar that tells WooCommerce shoppers how much more to add to qualify for free delivery.
+Show shoppers how much more to add for free shipping, with a progress bar on the cart and checkout, classic or block.
 
 == Description ==
 
@@ -115,6 +115,7 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 1. The cart with one progress bar above the totals, showing how much more to add for free shipping.
 2. The Shiplume settings screen: where the bar shows, the free-shipping threshold and the messages, with the PRO features listed alongside.
 3. The same bar at the top of the checkout.
+4. The bar above the WooCommerce Cart block.
 
 == External Services ==
 
