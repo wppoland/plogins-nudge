@@ -21,8 +21,8 @@ return [
     ],
     'features'   => [
         [
-            'en' => ['title' => 'Floating mini-cart bar', 'desc' => 'A free-shipping progress bar on every storefront page, with position, message and colour controls.'],
-            'pl' => ['title' => 'Pływający pasek mini-koszyka', 'desc' => 'Pasek postępu do darmowej wysyłki na każdej stronie sklepu, z konfiguracją pozycji, komunikatu i kolorów.'],
+            'en' => ['title' => 'Floating site-wide bar', 'desc' => 'A free-shipping progress bar on every storefront page, with position, message and colour controls.'],
+            'pl' => ['title' => 'Pływający pasek na całej stronie', 'desc' => 'Pasek postępu do darmowej wysyłki na każdej stronie sklepu, z konfiguracją pozycji, komunikatu i kolorów.'],
         ],
         [
             'en' => ['title' => 'Per-zone goals', 'desc' => 'Different free-shipping thresholds matched to the customer\'s shipping zone instead of a global minimum.'],

@@ -1,9 +1,11 @@
 /**
  * Nudge, free-shipping progress bar (storefront, dependency-free).
  *
- * WooCommerce re-renders the cart/checkout totals (and therefore our bar) on its
- * own when the cart changes, firing `updated_cart_totals` / `updated_checkout`
- * on document.body. The fresh server markup already carries the correct width
+ * WooCommerce re-renders the cart/checkout totals, the mini-cart and any
+ * [shiplume] fragment (and therefore our bar) on its own when the cart changes,
+ * firing `updated_cart_totals`, `updated_checkout`, `wc_fragments_refreshed` or
+ * `added_to_cart` on document.body. The Cart and Checkout blocks are handled by
+ * nudge-blocks.js instead. The fresh server markup already carries the correct width
  * and message, so the bar is always accurate without JS. This script's only job
  * is polish: after each update it nudges the fill from its previous width to the
  * new one so the change animates smoothly instead of snapping.
@@ -70,7 +72,7 @@
 	// WooCommerce fires these through jQuery's trigger(), which never reaches a
 	// native addEventListener for custom events, so bind through jQuery when
 	// it is there (WooCommerce's cart and checkout scripts load it).
-	var events = [ 'updated_cart_totals', 'updated_checkout', 'updated_shipping_method' ];
+	var events = [ 'updated_cart_totals', 'updated_checkout', 'updated_shipping_method', 'wc_fragments_refreshed', 'added_to_cart' ];
 	if ( window.jQuery ) {
 		window.jQuery( document.body ).on( events.join( ' ' ), onUpdate );
 	} else {
