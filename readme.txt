@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -126,6 +126,9 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.1 =
+* The settings screen names the floating bar feature the same way as the plugin page does.
 
 = 1.2.0 =
 * New: the bar shows on the Cart and Checkout blocks, above the block, and updates after a quantity change, coupon or removal without a reload. It used to draw nothing on a block cart or checkout.
