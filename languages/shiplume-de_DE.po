@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Nudge - Free Shipping Progress Bar for WooCommerce "
 "0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shiplume\n"
-"POT-Creation-Date: 2026-09-29T10:29:05+00:00\n"
+"POT-Creation-Date: 2026-10-23T12:13:10+00:00\n"
 "PO-Revision-Date: 2026-06-16T20:23:00+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -113,11 +113,11 @@ msgid ""
 "defaults work out of the box, adjust below only if you want to."
 msgstr ""
 
-#: src/Admin/Settings.php:127
+#: src/Admin/Settings.php:128
 msgid "General"
 msgstr "Allgemein"
 
-#: src/Admin/Settings.php:128
+#: src/Admin/Settings.php:129
 msgid ""
 "Turn the bar on and choose where shoppers see it. Showing it on both cart "
 "and checkout keeps the goal in front of them through the whole purchase."
@@ -126,15 +126,15 @@ msgstr ""
 "Anzeige im Warenkorb und an der Kasse bleibt das Ziel während des gesamten "
 "Kaufvorgangs vor Augen."
 
-#: src/Admin/Settings.php:132
+#: src/Admin/Settings.php:133
 msgid "Enable Shiplume"
 msgstr ""
 
-#: src/Admin/Settings.php:136
+#: src/Admin/Settings.php:137
 msgid "Show the free-shipping progress bar to shoppers."
 msgstr "Zeige Käufern den Fortschrittsbalken für den kostenlosen Versand an."
 
-#: src/Admin/Settings.php:138
+#: src/Admin/Settings.php:139
 msgid ""
 "When off, the bar and its assets never load, no styles or scripts are added "
 "to the front end."
@@ -142,43 +142,50 @@ msgstr ""
 "Wenn diese Option deaktiviert ist, werden die Leiste und ihre Assets nie "
 "geladen und dem Frontend werden keine Stile oder Skripte hinzugefügt."
 
-#: src/Admin/Settings.php:144
+#: src/Admin/Settings.php:145
 msgid "Cart page"
 msgstr "Warenkorbseite"
 
-#: src/Admin/Settings.php:145
-msgid "Show the bar on the cart page, above the totals."
-msgstr "Zeige die Leiste auf der Warenkorbseite über den Gesamtsummen an."
-
-#: src/Admin/Settings.php:148
+#: src/Admin/Settings.php:146
 msgid ""
-"Your cart page is built with the Cart block, which the bar cannot hook into. "
-"Ticking this box will not show it to shoppers. Switch the page to the "
-"[woocommerce_cart] shortcode to use the bar there."
+"Show the bar on the cart page: above the totals on the classic cart, above "
+"the Cart block on a block cart."
 msgstr ""
 
-#: src/Admin/Settings.php:153
+#: src/Admin/Settings.php:151
 msgid "Checkout page"
 msgstr "Kassenseite"
 
-#: src/Admin/Settings.php:154
+#: src/Admin/Settings.php:152
 msgid "Show the bar on checkout, so the goal stays visible while they pay."
 msgstr ""
 "Zeige den Balken an der Kasse an, damit das Ziel beim Bezahlen sichtbar "
 "bleibt."
 
 #: src/Admin/Settings.php:157
-msgid ""
-"Your checkout page is built with the Checkout block, which the bar cannot "
-"hook into. Ticking this box will not show it to shoppers. Switch the page to "
-"the [woocommerce_checkout] shortcode to use the bar there."
+msgid "Mini-cart widget"
+msgstr ""
+
+#: src/Admin/Settings.php:158
+msgid "Show the bar in the classic mini-cart widget, above its buttons."
+msgstr ""
+
+#: src/Admin/Settings.php:163
+msgid "Shortcode"
 msgstr ""
 
 #: src/Admin/Settings.php:166
+msgid ""
+"Place the same bar anywhere else, for example in a header or on a product "
+"page. It shows the cart as it is when the page loads and updates after an "
+"add to cart."
+msgstr ""
+
+#: src/Admin/Settings.php:174
 msgid "Free-shipping threshold"
 msgstr "Schwellenwert für den kostenlosen Versand"
 
-#: src/Admin/Settings.php:167
+#: src/Admin/Settings.php:175
 msgid ""
 "Where the “you reach free shipping at…” amount comes from. Automatic keeps "
 "the bar in sync with your real shipping rules, so it is never wrong after a "
@@ -188,19 +195,19 @@ msgstr ""
 "synchronisiert sich die Leiste mit deinen tatsächlichen Versandregeln, "
 "sodass sie nach einer Preisänderung nie falsch ist."
 
-#: src/Admin/Settings.php:172
+#: src/Admin/Settings.php:180
 msgid "Threshold source"
 msgstr "Schwellenwertquelle"
 
-#: src/Admin/Settings.php:179
+#: src/Admin/Settings.php:187
 msgid "Automatic (from free-shipping method)"
 msgstr "Automatisch (von der kostenlosen Versandmethode)"
 
-#: src/Admin/Settings.php:180
+#: src/Admin/Settings.php:188
 msgid "Manual (fixed amount)"
 msgstr "Manuell (Festbetrag)"
 
-#: src/Admin/Settings.php:189
+#: src/Admin/Settings.php:197
 msgid ""
 "Automatic reads the minimum order amount from your WooCommerce free-shipping "
 "method, the smallest one across your shipping zones, so the bar updates "
@@ -213,11 +220,11 @@ msgstr ""
 "manuelle Betrag wird als Ersatz verwendet, wenn keine solche Methode "
 "gefunden wird."
 
-#: src/Admin/Settings.php:194
+#: src/Admin/Settings.php:202
 msgid "Manual amount"
 msgstr "Manueller Betrag"
 
-#: src/Admin/Settings.php:198
+#: src/Admin/Settings.php:206
 msgid ""
 "In your store currency, before shipping and taxes. Used when the source is "
 "Manual, or as the fallback for Automatic. Default: 50."
@@ -225,12 +232,12 @@ msgstr ""
 "In der Währung deines Shops, vor Versand und Steuern. Wird verwendet, wenn "
 "die Quelle „Manuell“ ist, oder als Ersatz für „Automatisch“. Standard: 50."
 
-#: src/Admin/Settings.php:206
+#: src/Admin/Settings.php:214
 msgid "Messages"
 msgstr "Nachrichten"
 
 #. translators: %s: the {amount} token, shown as a styled chip.
-#: src/Admin/Settings.php:211
+#: src/Admin/Settings.php:219
 #, php-format
 msgid ""
 "What the bar says before and after the goal is reached. Write %s where you "
@@ -239,17 +246,22 @@ msgid ""
 "reached nothing is remaining, so in the success message it reads as zero."
 msgstr ""
 
-#: src/Admin/Settings.php:220
+#: src/Admin/Settings.php:228
 msgid "Progress message"
 msgstr "Fortschrittsmeldung"
 
-#: src/Admin/Settings.php:225 src/Admin/Settings.php:237
+#: src/Admin/Settings.php:233 src/Admin/Settings.php:245
 msgid "Shoppers see:"
 msgstr "Käufer sehen:"
 
-#: src/Admin/Settings.php:232
+#: src/Admin/Settings.php:240
 msgid "Success message"
 msgstr "Erfolgsmeldung"
+
+#: src/Service/ProgressBarService.php:275
+msgid ""
+"Free-shipping progress bar markup for this placement, empty when hidden."
+msgstr ""
 
 #: src/Service/Texts.php:32
 msgid "Add {amount} more to get free shipping!"
@@ -262,6 +274,9 @@ msgstr ""
 #: templates/progress-bar.php:58
 msgid "Progress towards free shipping"
 msgstr "Fortschritte in Richtung kostenlosem Versand"
+
+#~ msgid "Show the bar on the cart page, above the totals."
+#~ msgstr "Zeige die Leiste auf der Warenkorbseite über den Gesamtsummen an."
 
 #~ msgid "Wkrótce"
 #~ msgstr "Demnächst"

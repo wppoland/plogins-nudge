@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Nudge - Free Shipping Progress Bar for WooCommerce "
 "0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shiplume\n"
-"POT-Creation-Date: 2026-09-29T10:29:05+00:00\n"
+"POT-Creation-Date: 2026-10-23T12:13:10+00:00\n"
 "PO-Revision-Date: 2026-06-15 10:00+0000\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -118,11 +118,11 @@ msgstr ""
 "koszyka. Domyślne ustawienia działają od razu, dostosuj poniższe tylko "
 "wtedy, gdy chcesz."
 
-#: src/Admin/Settings.php:127
+#: src/Admin/Settings.php:128
 msgid "General"
 msgstr "Ogólne"
 
-#: src/Admin/Settings.php:128
+#: src/Admin/Settings.php:129
 msgid ""
 "Turn the bar on and choose where shoppers see it. Showing it on both cart "
 "and checkout keeps the goal in front of them through the whole purchase."
@@ -130,15 +130,15 @@ msgstr ""
 "Włącz pasek i wybierz, gdzie widzą go kupujący. Wyświetlanie go zarówno w "
 "koszyku, jak i kasie pozwala zachować cel przed sobą przez cały okres zakupu."
 
-#: src/Admin/Settings.php:132
+#: src/Admin/Settings.php:133
 msgid "Enable Shiplume"
 msgstr "Włącz Shiplume"
 
-#: src/Admin/Settings.php:136
+#: src/Admin/Settings.php:137
 msgid "Show the free-shipping progress bar to shoppers."
 msgstr "Pokaż kupującym pasek postępu bezpłatnej wysyłki."
 
-#: src/Admin/Settings.php:138
+#: src/Admin/Settings.php:139
 msgid ""
 "When off, the bar and its assets never load, no styles or scripts are added "
 "to the front end."
@@ -146,48 +146,48 @@ msgstr ""
 "Gdy jest wyłączony, pasek i jego zasoby nigdy się nie ładują, a do "
 "interfejsu nie są dodawane żadne style ani skrypty."
 
-#: src/Admin/Settings.php:144
+#: src/Admin/Settings.php:145
 msgid "Cart page"
 msgstr "Strona koszyka"
 
-#: src/Admin/Settings.php:145
-msgid "Show the bar on the cart page, above the totals."
-msgstr "Pokaż pasek na stronie koszyka, nad sumami."
-
-#: src/Admin/Settings.php:148
+#: src/Admin/Settings.php:146
 msgid ""
-"Your cart page is built with the Cart block, which the bar cannot hook into. "
-"Ticking this box will not show it to shoppers. Switch the page to the "
-"[woocommerce_cart] shortcode to use the bar there."
+"Show the bar on the cart page: above the totals on the classic cart, above "
+"the Cart block on a block cart."
 msgstr ""
-"Twoja strona koszyka jest zbudowana z bloku Koszyk, do którego pasek nie "
-"może się podpiąć. Zaznaczenie tego pola nie pokaże go kupującym. Przełącz "
-"stronę na krótki kod [woocommerce_cart], aby używać tam paska."
 
-#: src/Admin/Settings.php:153
+#: src/Admin/Settings.php:151
 msgid "Checkout page"
 msgstr "Strona zamówienia"
 
-#: src/Admin/Settings.php:154
+#: src/Admin/Settings.php:152
 msgid "Show the bar on checkout, so the goal stays visible while they pay."
 msgstr "Pokaż pasek przy kasie, aby cel pozostał widoczny podczas płacenia."
 
 #: src/Admin/Settings.php:157
-msgid ""
-"Your checkout page is built with the Checkout block, which the bar cannot "
-"hook into. Ticking this box will not show it to shoppers. Switch the page to "
-"the [woocommerce_checkout] shortcode to use the bar there."
+msgid "Mini-cart widget"
 msgstr ""
-"Twoja strona zamówienia jest zbudowana z bloku Realizacja zamówienia, do "
-"którego pasek nie może się podpiąć. Zaznaczenie tego pola nie pokaże go "
-"kupującym. Przełącz stronę na krótki kod [woocommerce_checkout], aby używać "
-"tam paska."
+
+#: src/Admin/Settings.php:158
+msgid "Show the bar in the classic mini-cart widget, above its buttons."
+msgstr ""
+
+#: src/Admin/Settings.php:163
+msgid "Shortcode"
+msgstr ""
 
 #: src/Admin/Settings.php:166
+msgid ""
+"Place the same bar anywhere else, for example in a header or on a product "
+"page. It shows the cart as it is when the page loads and updates after an "
+"add to cart."
+msgstr ""
+
+#: src/Admin/Settings.php:174
 msgid "Free-shipping threshold"
 msgstr "Próg darmowej dostawy"
 
-#: src/Admin/Settings.php:167
+#: src/Admin/Settings.php:175
 msgid ""
 "Where the “you reach free shipping at…” amount comes from. Automatic keeps "
 "the bar in sync with your real shipping rules, so it is never wrong after a "
@@ -197,19 +197,19 @@ msgstr ""
 "synchronizuje pasek z rzeczywistymi zasadami wysyłki, więc nigdy nie jest "
 "źle po zmianie ceny."
 
-#: src/Admin/Settings.php:172
+#: src/Admin/Settings.php:180
 msgid "Threshold source"
 msgstr "Źródło progu"
 
-#: src/Admin/Settings.php:179
+#: src/Admin/Settings.php:187
 msgid "Automatic (from free-shipping method)"
 msgstr "Automatyczne (z metody darmowej dostawy)"
 
-#: src/Admin/Settings.php:180
+#: src/Admin/Settings.php:188
 msgid "Manual (fixed amount)"
 msgstr "Ręczne (stała kwota)"
 
-#: src/Admin/Settings.php:189
+#: src/Admin/Settings.php:197
 msgid ""
 "Automatic reads the minimum order amount from your WooCommerce free-shipping "
 "method, the smallest one across your shipping zones, so the bar updates "
@@ -221,11 +221,11 @@ msgstr ""
 "się aktualizuje, gdy zmienisz tę regułę. Kwota ręczna poniżej jest używana "
 "jako rezerwa, gdy nie zostanie znaleziona taka metoda."
 
-#: src/Admin/Settings.php:194
+#: src/Admin/Settings.php:202
 msgid "Manual amount"
 msgstr "Kwota ręczna"
 
-#: src/Admin/Settings.php:198
+#: src/Admin/Settings.php:206
 msgid ""
 "In your store currency, before shipping and taxes. Used when the source is "
 "Manual, or as the fallback for Automatic. Default: 50."
@@ -234,12 +234,12 @@ msgstr ""
 "jest Ręczne lub jako źródło zastępcze dla Automatycznego. Wartość domyślna: "
 "50."
 
-#: src/Admin/Settings.php:206
+#: src/Admin/Settings.php:214
 msgid "Messages"
 msgstr "Komunikaty"
 
 #. translators: %s: the {amount} token, shown as a styled chip.
-#: src/Admin/Settings.php:211
+#: src/Admin/Settings.php:219
 #, php-format
 msgid ""
 "What the bar says before and after the goal is reached. Write %s where you "
@@ -253,17 +253,22 @@ msgstr ""
 "osiągnięciu celu nic już nie brakuje, więc w komunikacie sukcesu odczyta się "
 "jako zero."
 
-#: src/Admin/Settings.php:220
+#: src/Admin/Settings.php:228
 msgid "Progress message"
 msgstr "Komunikat postępu"
 
-#: src/Admin/Settings.php:225 src/Admin/Settings.php:237
+#: src/Admin/Settings.php:233 src/Admin/Settings.php:245
 msgid "Shoppers see:"
 msgstr "Kupujący widzą:"
 
-#: src/Admin/Settings.php:232
+#: src/Admin/Settings.php:240
 msgid "Success message"
 msgstr "Komunikat sukcesu"
+
+#: src/Service/ProgressBarService.php:275
+msgid ""
+"Free-shipping progress bar markup for this placement, empty when hidden."
+msgstr ""
 
 #: src/Service/Texts.php:32
 msgid "Add {amount} more to get free shipping!"
@@ -276,6 +281,28 @@ msgstr "Masz darmową dostawę!"
 #: templates/progress-bar.php:58
 msgid "Progress towards free shipping"
 msgstr "Postęp do darmowej dostawy"
+
+#~ msgid "Show the bar on the cart page, above the totals."
+#~ msgstr "Pokaż pasek na stronie koszyka, nad sumami."
+
+#~ msgid ""
+#~ "Your cart page is built with the Cart block, which the bar cannot hook "
+#~ "into. Ticking this box will not show it to shoppers. Switch the page to "
+#~ "the [woocommerce_cart] shortcode to use the bar there."
+#~ msgstr ""
+#~ "Twoja strona koszyka jest zbudowana z bloku Koszyk, do którego pasek nie "
+#~ "może się podpiąć. Zaznaczenie tego pola nie pokaże go kupującym. Przełącz "
+#~ "stronę na krótki kod [woocommerce_cart], aby używać tam paska."
+
+#~ msgid ""
+#~ "Your checkout page is built with the Checkout block, which the bar cannot "
+#~ "hook into. Ticking this box will not show it to shoppers. Switch the page "
+#~ "to the [woocommerce_checkout] shortcode to use the bar there."
+#~ msgstr ""
+#~ "Twoja strona zamówienia jest zbudowana z bloku Realizacja zamówienia, do "
+#~ "którego pasek nie może się podpiąć. Zaznaczenie tego pola nie pokaże go "
+#~ "kupującym. Przełącz stronę na krótki kod [woocommerce_checkout], aby "
+#~ "używać tam paska."
 
 #~ msgid "Shiplume - Free Shipping Bar for WooCommerce"
 #~ msgstr "Shiplume - pasek darmowej dostawy dla WooCommerce"
