@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,7 @@ always-finished bar.
 * **Plugin page**: [plogins.com/plogins-nudge/](https://plogins.com/plogins-nudge/)
 * **Source code**: [github.com/wppoland/plogins-nudge](https://github.com/wppoland/plogins-nudge)
 * **Bug reports and feature requests**: [github.com/wppoland/plogins-nudge/issues](https://github.com/wppoland/plogins-nudge/issues)
+* **Shiplume Pro**: [plogins.com/plogins-nudge-pro/](https://plogins.com/plogins-nudge-pro/)
 
 
 = What it does =
@@ -58,6 +59,21 @@ always-finished bar.
   compatibility.
 
 Source code and bug reports live on GitHub: [github.com/wppoland/plogins-nudge](https://github.com/wppoland/plogins-nudge)
+
+== Shiplume Pro ==
+
+Shiplume Pro is a separate paid plugin that works on top of Shiplume. It adds:
+
+* Floating mini-cart bar
+* Per-zone goals
+* Tiered rewards
+* Conversion analytics
+
+The free edition is not a trial and its features stay available without a time limit.
+
+* **Shiplume Pro** - [plogins.com/plogins-nudge-pro/](https://plogins.com/plogins-nudge-pro/)
+* **Compare editions and pricing** - [plogins.com/plogins-nudge-pro/pricing/](https://plogins.com/plogins-nudge-pro/pricing/)
+* **PRO documentation** - [plogins.com/plogins-nudge-pro/docs/](https://plogins.com/plogins-nudge-pro/docs/)
 
 == Installation ==
 
@@ -126,6 +142,9 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.2 =
+* Readme only: a PRO section with links to the paid edition.
 
 = 1.2.1 =
 * The settings screen names the floating bar feature the same way as the plugin page does.
