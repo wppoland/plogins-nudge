@@ -62,12 +62,19 @@ Source code and bug reports live on GitHub: [github.com/wppoland/plogins-nudge](
 
 == Shiplume Pro ==
 
-Shiplume Pro is a separate paid plugin that works on top of Shiplume. It adds:
+Shiplume Pro is a separate paid plugin that extends Shiplume:
 
-* Floating mini-cart bar
-* Per-zone goals
-* Tiered rewards
-* Conversion analytics
+| Feature | Free | Pro |
+|:--- |:---:|:---:|
+| Automatic threshold | Yes | Yes |
+| Live updates | Yes | Yes |
+| Cart and checkout | Yes | Yes |
+| Accessible | Yes | Yes |
+| No layout shift | Yes | Yes |
+| Floating mini-cart bar | - | Yes |
+| Per-zone goals | - | Yes |
+| Tiered rewards | - | Yes |
+| Conversion analytics | - | Yes |
 
 The free edition is not a trial and its features stay available without a time limit.
 
