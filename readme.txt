@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,19 +62,22 @@ Source code and bug reports live on GitHub: [github.com/wppoland/plogins-nudge](
 
 == Shiplume Pro ==
 
-Shiplume Pro is a separate paid plugin that extends Shiplume:
+Shiplume Pro is a separate paid plugin that extends Shiplume.
 
-| Feature | Free | Pro |
-|:--- |:---:|:---:|
-| Automatic threshold | Yes | Yes |
-| Live updates | Yes | Yes |
-| Cart and checkout | Yes | Yes |
-| Accessible | Yes | Yes |
-| No layout shift | Yes | Yes |
-| Floating mini-cart bar | - | Yes |
-| Per-zone goals | - | Yes |
-| Tiered rewards | - | Yes |
-| Conversion analytics | - | Yes |
+Included in Shiplume:
+
+* Automatic threshold
+* Live updates
+* Cart and checkout
+* Accessible
+* No layout shift
+
+Shiplume Pro adds:
+
+* Floating mini-cart bar
+* Per-zone goals
+* Tiered rewards
+* Conversion analytics
 
 The free edition is not a trial and its features stay available without a time limit.
 
@@ -149,6 +152,10 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.3 =
+* The Upgrade to PRO links open the pricing page in the admin's language where plogins.com has one, and tell plogins.com which plugin the visit came from (utm_source, utm_medium and utm_campaign in the link). Nothing is sent from your site.
+* Readme: the PRO section lists what the free plugin includes and what the paid edition adds as two lists, which WordPress.org can display (it does not display tables).
 
 = 1.2.2 =
 * Readme only: a PRO section with links to the paid edition.

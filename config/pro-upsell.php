@@ -12,6 +12,8 @@ defined('ABSPATH') || exit;
 return [
     'name'       => 'Shiplume Pro',
     'url'        => 'https://plogins.com/plogins-nudge-pro/pricing/',
+    'campaign'   => 'plogins-nudge',
+    'locales'    => ['pl', 'de', 'es'],
     'sellable'   => true,
     'price_from' => 19,
     'currency'   => 'EUR',
