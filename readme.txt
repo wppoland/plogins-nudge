@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,11 +30,11 @@ always-finished bar.
 
 = Documentation and links =
 
-* **Documentation**: [plogins.com/plogins-nudge/docs/](https://plogins.com/plogins-nudge/docs/)
-* **Plugin page**: [plogins.com/plogins-nudge/](https://plogins.com/plogins-nudge/)
-* **Source code**: [github.com/wppoland/plogins-nudge](https://github.com/wppoland/plogins-nudge)
-* **Bug reports and feature requests**: [github.com/wppoland/plogins-nudge/issues](https://github.com/wppoland/plogins-nudge/issues)
-* **Shiplume Pro**: [plogins.com/plogins-nudge-pro/](https://plogins.com/plogins-nudge-pro/)
+* **Documentation**: [plogins.com/shiplume/docs/](https://plogins.com/shiplume/docs/)
+* **Plugin page**: [plogins.com/shiplume/](https://plogins.com/shiplume/)
+* **Source code**: [github.com/wppoland/shiplume](https://github.com/wppoland/shiplume)
+* **Bug reports and feature requests**: [github.com/wppoland/shiplume/issues](https://github.com/wppoland/shiplume/issues)
+* **Shiplume Pro**: [plogins.com/shiplume-pro/](https://plogins.com/shiplume-pro/)
 
 
 = What it does =
@@ -58,7 +58,7 @@ always-finished bar.
 * Ships a POT file, removes its options on uninstall, and declares HPOS
   compatibility.
 
-Source code and bug reports live on GitHub: [github.com/wppoland/plogins-nudge](https://github.com/wppoland/plogins-nudge)
+Source code and bug reports live on GitHub: [github.com/wppoland/shiplume](https://github.com/wppoland/shiplume)
 
 == Shiplume Pro ==
 
@@ -81,9 +81,9 @@ Shiplume Pro adds:
 
 The free edition is not a trial and its features stay available without a time limit.
 
-* **Shiplume Pro** - [plogins.com/plogins-nudge-pro/](https://plogins.com/plogins-nudge-pro/)
-* **Compare editions and pricing** - [plogins.com/plogins-nudge-pro/pricing/](https://plogins.com/plogins-nudge-pro/pricing/)
-* **PRO documentation** - [plogins.com/plogins-nudge-pro/docs/](https://plogins.com/plogins-nudge-pro/docs/)
+* **Shiplume Pro** - [plogins.com/shiplume-pro/](https://plogins.com/shiplume-pro/)
+* **Compare editions and pricing** - [plogins.com/shiplume-pro/pricing/](https://plogins.com/shiplume-pro/pricing/)
+* **PRO documentation** - [plogins.com/shiplume-pro/docs/](https://plogins.com/shiplume-pro/docs/)
 
 == Installation ==
 
@@ -152,6 +152,9 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.4 =
+* Links point at the new plogins.com address and the renamed GitHub repository.
 
 = 1.2.3 =
 * The Upgrade to PRO links open the pricing page in the admin's language where plogins.com has one, and tell plogins.com which plugin the visit came from (utm_source, utm_medium and utm_campaign in the link). Nothing is sent from your site.

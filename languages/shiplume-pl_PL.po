@@ -25,8 +25,8 @@ msgstr ""
 
 #. Plugin URI of the plugin
 #: shiplume.php
-msgid "https://plogins.com/plogins-nudge/"
-msgstr "https://plogins.com/plogins-nudge/"
+msgid "https://plogins.com/shiplume/"
+msgstr "https://plogins.com/shiplume/"
 
 #. Description of the plugin
 #: shiplume.php
