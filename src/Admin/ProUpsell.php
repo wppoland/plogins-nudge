@@ -89,7 +89,7 @@ final class ProUpsell
 
     private function url(): string
     {
-        $default = (string) ($this->data()['url'] ?? 'https://plogins.com/plogins-nudge-pro/');
+        $default = (string) ($this->data()['url'] ?? 'https://plogins.com/shiplume-pro/');
         $default = $this->trackedUrl($default);
         /**
          * Filters the URL the PRO call-to-action buttons point at.

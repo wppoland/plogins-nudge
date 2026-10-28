@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       Shiplume - Shipping Progress Bar for WooCommerce
- * Plugin URI:        https://plogins.com/plogins-nudge/
+ * Plugin URI:        https://plogins.com/shiplume/
  * Description:        Show a free-shipping progress bar that nudges shoppers to add more to their cart.
- * Version:           1.2.3
+ * Version:           1.2.4
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -25,7 +25,7 @@ namespace Nudge;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '1.2.3';
+const VERSION     = '1.2.4';
 const PLUGIN_FILE = __FILE__;
 
 define('NUDGE_DIR', plugin_dir_path(__FILE__));

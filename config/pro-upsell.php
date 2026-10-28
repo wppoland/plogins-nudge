@@ -4,15 +4,15 @@
  * scripts/gen-pro-upsell.mjs. The admin upsell renders this; curate the
  * feature list to fit this plugin's settings screen (do not invent features).
  *
- * @package plogins-nudge-pro
+ * @package shiplume-pro
  */
 
 defined('ABSPATH') || exit;
 
 return [
     'name'       => 'Shiplume Pro',
-    'url'        => 'https://plogins.com/plogins-nudge-pro/pricing/',
-    'campaign'   => 'plogins-nudge',
+    'url'        => 'https://plogins.com/shiplume-pro/pricing/',
+    'campaign'   => 'shiplume',
     'locales'    => ['pl', 'de', 'es'],
     'sellable'   => true,
     'price_from' => 19,
