@@ -67,6 +67,10 @@ final class ProgressBarService implements HasHooks
 
         add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
 
+        // After PRO tiered rewards (10): the order minimum blocks checkout, so
+        // its message wins over any free-shipping copy.
+        add_filter('nudge/bar_context', [$this, 'partnerContext'], 20);
+
         // One bar per page. There used to be a second, "inline" bar hooked
         // inside the totals table on both pages, so every shopper saw the bar
         // twice. Inside a <tfoot> the browser also hoists the <div> out of the
@@ -79,7 +83,9 @@ final class ProgressBarService implements HasHooks
         if (! empty($settings['show_on_checkout'])) {
             add_action('woocommerce_before_checkout_form', [$this, 'renderCheckoutBar'], 5);
             // The checkout form is not re-rendered on update, so send the bar
-            // as a fragment to keep it current when a coupon changes the total.
+            // as a fragment to keep it current when a coupon or the shipping
+            // method changes. The fragment targets the slot, which survives a
+            // hidden bar, so the bar can come back.
             add_filter('woocommerce_update_order_review_fragments', [$this, 'checkoutFragment']);
         }
 
@@ -168,7 +174,7 @@ final class ProgressBarService implements HasHooks
      */
     public function renderCheckoutBar(): void
     {
-        echo $this->kses($this->buildBar('checkout')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- filtered by kses().
+        echo $this->slot('checkout'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- slot() escapes and filters by kses().
     }
 
     /**
@@ -318,7 +324,7 @@ final class ProgressBarService implements HasHooks
      */
     public function checkoutFragment(array $fragments): array
     {
-        $fragments['div.nudge--checkout'] = $this->kses($this->buildBar('checkout'));
+        $fragments['div.nudge-slot--checkout'] = $this->slot('checkout', false);
 
         return $fragments;
     }
@@ -379,12 +385,93 @@ final class ProgressBarService implements HasHooks
          * @param array<string, mixed> $barContext Progress data for the bar.
          * @param array<string, mixed> $settings   Merged nudge settings.
          */
+        // A listener (local pickup chosen, see partnerContext()) asked for no bar.
+        if (! empty($barContext['hidden'])) {
+            return '';
+        }
+
         do_action('nudge/bar_rendered', $barContext, $settings);
 
         ob_start();
         $this->renderTemplate('progress-bar', $barContext);
 
         return (string) ob_get_clean();
+    }
+
+    /**
+     * Partner plugins, detected and never required.
+     *
+     * - A local pickup method is chosen (WooCommerce core, Prenejo): shipping
+     *   does not apply, so the bar is hidden.
+     * - Sojlo is active with a minimum order total the cart is still under: the
+     *   bar says what is missing for the minimum, the same subtotal Sojlo checks.
+     *
+     * @param array<string, mixed> $barContext
+     * @return array<string, mixed>
+     */
+    public function partnerContext(array $barContext): array
+    {
+        if ($this->isLocalPickupChosen()) {
+            $barContext['hidden'] = true;
+
+            return $barContext;
+        }
+
+        $minimum = $this->sojloMinimum();
+
+        if ($minimum <= 0.0) {
+            return $barContext;
+        }
+
+        $subtotal = (float) WC()->cart->get_subtotal();
+
+        if ($subtotal >= $minimum) {
+            return $barContext;
+        }
+
+        $barContext['reached'] = false;
+        $barContext['message'] = sprintf(
+            /* translators: 1: amount still missing, 2: minimum order total. Both are formatted prices. */
+            __('Add %1$s more to reach the minimum order of %2$s.', 'shiplume'),
+            wc_price($minimum - $subtotal),
+            wc_price($minimum),
+        );
+
+        return $barContext;
+    }
+
+    /**
+     * The chosen shipping method is a local pickup one, as Prenejo detects it:
+     * classic method ids start with local_pickup, the Blocks pickup with
+     * pickup_location.
+     */
+    private function isLocalPickupChosen(): bool
+    {
+        if (! function_exists('WC') || null === WC()->session) {
+            return false;
+        }
+
+        $chosen = WC()->session->get('chosen_shipping_methods');
+
+        foreach (is_array($chosen) ? $chosen : [] as $method) {
+            if (str_starts_with((string) $method, 'local_pickup') || str_starts_with((string) $method, 'pickup_location')) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /** Sojlo's minimum order total, 0 when Sojlo is absent, off or has none. */
+    private function sojloMinimum(): float
+    {
+        if (! did_action('minimum/booted') || ! class_exists('\Minimum\Rules\Settings')) {
+            return 0.0;
+        }
+
+        $sojlo = new \Minimum\Rules\Settings();
+
+        return $sojlo->is_enabled() ? $sojlo->min_order_total() : 0.0;
     }
 
     /**

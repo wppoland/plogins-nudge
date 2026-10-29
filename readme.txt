@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,10 @@ Shiplume does not connect to any external service. It does not send analytics, r
 Shiplume is fully translatable and ships the `shiplume.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.5 =
+* With Sojlo active and a minimum order total set, a cart under that minimum shows how much is missing for the minimum instead of the free-shipping message.
+* The bar is hidden while a local pickup shipping method is chosen (WooCommerce local pickup, also used by Prenejo), and comes back when the shopper switches to a delivered method. On the classic checkout it now returns after being hidden.
 
 = 1.2.4 =
 * Links point at the new plogins.com address and the renamed GitHub repository.
