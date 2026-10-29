@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Nudge - Free Shipping Progress Bar for WooCommerce "
 "0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shiplume\n"
-"POT-Creation-Date: 2026-10-23T12:13:10+00:00\n"
+"POT-Creation-Date: 2026-10-29T13:40:04+00:00\n"
 "PO-Revision-Date: 2026-06-16T20:23:00+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -52,48 +52,48 @@ msgid ""
 "active."
 msgstr ""
 
-#: src/Admin/ProUpsell.php:85
+#: src/Admin/ProUpsell.php:110
 msgid "Coming soon"
 msgstr "Próximamente"
 
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:91
+#: src/Admin/ProUpsell.php:116
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr "desde %1$s%2$d/año"
 
-#: src/Admin/ProUpsell.php:100
+#: src/Admin/ProUpsell.php:125
 msgid "Upgrade to PRO"
 msgstr "Mejora a PRO"
 
-#: src/Admin/ProUpsell.php:101
+#: src/Admin/ProUpsell.php:126
 msgid "Get notified"
 msgstr "Avísame"
 
-#: src/Admin/ProUpsell.php:131
+#: src/Admin/ProUpsell.php:156
 msgid "Permission denied."
 msgstr "Permiso denegado."
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:161
+#: src/Admin/ProUpsell.php:186
 #, php-format
 msgid "Do more with %s"
 msgstr "Haz más con %s"
 
-#: src/Admin/ProUpsell.php:168
+#: src/Admin/ProUpsell.php:193
 msgid "Dismiss this notice"
 msgstr "Descartar este aviso"
 
-#: src/Admin/ProUpsell.php:190
+#: src/Admin/ProUpsell.php:215
 msgid "Unlock every PRO feature"
 msgstr "Desbloquea todas las funciones PRO"
 
-#: src/Admin/ProUpsell.php:203
+#: src/Admin/ProUpsell.php:228
 msgid "one licence, every PRO feature"
 msgstr "una licencia, todas las funciones PRO"
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:222
+#: src/Admin/ProUpsell.php:247
 #, php-format
 msgid "What %s adds"
 msgstr "Lo que añade %s"
@@ -257,9 +257,15 @@ msgstr "Los compradores ven:"
 msgid "Success message"
 msgstr "Mensaje de éxito"
 
-#: src/Service/ProgressBarService.php:275
+#: src/Service/ProgressBarService.php:281
 msgid ""
 "Free-shipping progress bar markup for this placement, empty when hidden."
+msgstr ""
+
+#. translators: 1: amount still missing, 2: minimum order total. Both are formatted prices.
+#: src/Service/ProgressBarService.php:435
+#, php-format
+msgid "Add %1$s more to reach the minimum order of %2$s."
 msgstr ""
 
 #: src/Service/Texts.php:32
