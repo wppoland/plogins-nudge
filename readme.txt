@@ -60,6 +60,11 @@ always-finished bar.
 
 Source code and bug reports live on GitHub: [github.com/wppoland/shiplume](https://github.com/wppoland/shiplume)
 
+= Works with other Plogins plugins =
+
+* [Sojlo - Minimum Order for WooCommerce](https://plogins.com/sojlo/) - below Sojlo's minimum order total, the bar says "Add X more to reach the minimum order of Y." instead of the free-shipping message.
+* [Prenejo - Local Pickup for WooCommerce](https://plogins.com/prenejo/) - the bar is hidden while a local pickup method is chosen, and comes back when the shopper picks delivery. This keys off WooCommerce local pickup, so it works without Prenejo too.
+
 == Shiplume Pro ==
 
 Shiplume Pro is a separate paid plugin that extends Shiplume.
@@ -131,6 +136,10 @@ Yes. The progress and success messages are editable on the settings screen, and
 the bar's colours and sizing are `--nudge-*` CSS custom properties your theme can
 override.
 
+
+= Does it work with Sojlo and local pickup? =
+
+Yes, with no setting. Below a Sojlo minimum order total, the bar says how much is missing for the minimum and is never shown as complete. While a local pickup method is chosen, including Prenejo's pickup, the bar is hidden on every placement.
 
 = Does this plugin work on WordPress Multisite? =
 
